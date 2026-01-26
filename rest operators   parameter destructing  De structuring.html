@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//rest operators
+
+// function test (a,b,...rest){
+//     console.log(a,rest);
+// }
+// test(3,35,5,6,78,99);
+
+
+
+// function test (...total){
+//    console.log(total);
+//    const a =total.reduce((sum,current)=> sum+current,0);
+//    console.log(a);
+// }
+//  const a =[11,22,33,44,55,66,77,88,99,0];
+// test(...a);
+ 
+//  parameter destructing
+
+
+// function test(a){const {name,age}=a;
+// console.log(name,age);
+// }
+
+//also write as this
+// function test({name,age}){
+//     console.log(name,age);
+// }
+
+// const ob={
+//     name:"vyasan",
+//     age: 23
+// };
+// test(ob);
+
+
+// function sum(...rest){
+// console.log(rest);
+// let sum=0;
+// rest.map(d=> sum+=d);
+
+// console.log("sum is :",sum);
+// }
+// sum(909090909090909);
+// sum(23,55,34344543,344334,43,4);
+
+// sum(3,4,5,6,7,7,7,7,7,88);
+
+
+//  Rest parameter can be destructured like normal arrays.
+// function show(...[a, b, c]) {
+//   console.log(a, b, c);
+// }
+// show(1, 2, 3); // 1 2 3
+
+
+// De structuring
+
+// const ob= {
+//     name:"vyas",
+//     place: "vyasan 0",
+//     rank:34
+// };
+// function myF(){
+//     // const name= ob.name;
+//     // const place= ob.place;   //difficult
+//     // const rank= ob.rank;
+
+// // const {name,place,rank}=ob;//This is destructuring
+// const {name,place,rank,status="jbhhj"}=ob;//This is destructuring
+   
+//  console.log(name,status)};
+// myF();
+
+
+
+
+// In Array
+// const ar=[1,2,,4,5,6,7,8,9,0];
+
+// function myF(){
+//     const [a, b,c="kdk",d,e,f,g,h,i,j,k,l]= ar;
+//     console.log(c);//here c="" is a default destructuring
+// }
+// myF();
+
+
+// const ar=[1,2,3];
+
+// function myF([a,b,c]){
+//     console.log(ar);
+// }
+// myF(ar);
+
+
+// const o={
+//        name:"vyas",
+//     place: "vyasan 0",
+//     rank:34
+// };
+
+// function myF({name,place}){
+//     console.log(name,place);
+// }
+// myF(o);
+    
+
+
+// const ar=[1,2,3];   //destructuring in array.
+// 
+// function myF(){
+//     var [a,b,c]= getValue();
+//      console.log(a,b,c);
+// }
+
+
+// function getValue(){
+//     return ar;
+// }
+// myF();
+
+
+// mutable and immutable Objects
+
+// const a= [ "value", "value2"];
+
+// const b = a.concat();//we can also make our array to immutable by using concat()
+// //we can also use spread operator 
+
+// console.log(a);
+// b.pop();
+// console.log(b);
+
+
+//In objects we can make it immutable by using object.assign({},x)
+// //we can also use spread operator 
+
+const a ={
+    name: "byasan",
+    id: 4,
+    class:23
+};
+
+const b= Object.assign({},a);
+b.name="vyasan";
+
+console.log(a);
+console.log(b);
+
+
+
+
+
+
+ </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="data:,">
+
+</head>
+<body>
+    
+    <script>
+// Object
+
+
+let user = {
+    name: "vyasan",
+    lastName: " K S"
+};
+user.name= "mohan";
+//  we can change the value like this.
+console.log(user);
+console.log(user.lastName);
+console.log(user.name);
+
+delete user.lastName;
+// to delete the key or value in objects.
+console.log(user);
+
+
+
+
+
+// Array
+
+let myArr = ["test ", "test1","test2","test3","test4"];
+console.log(myArr[0]);
+console.log(myArr[1]);
+console.log(myArr.length);
+for(i=0;i<=4;i++){
+    console.log(myArr[i]);
+};
+
+
+
+
+// String Methods
+
+
+let a= "vyasan";
+console.log(a.length);
+console.log(a.toUpperCase());
+console.log(a.toLowerCase());
+console.log(a.slice(0,4));
+// it takes lenght not index.we can extract the values using it.
+console.log(a.indexOf("s"));
+// if there is no value in database console tab shows -1 in indexOf.
+// if there ,we inter a full value ,if it is there ,it shows 0.
+console.log(a.lastIndexOf("a"));
+// it shows ,when there is last same value's index only.
+console.log(a.includes("vyas"));
+console.log(a.search("y"));
+// same as indexOf.
+
+let b= a.slice(4);
+console.log(b);
+
+
+// Number Methods
+
+let x = "32";
+let n =34;
+
+console.log(parseInt(x));
+console.log(n.toString());
+
+
+
+
+// Array Methods
+
+let myAr =["A","B","C","D"];
+myAr[2]= "Z";
+console.log(myAr);
+myAr.push("T");
+console.log(myAr);
+myAr.pop();
+console.log(myAr);
+myAr.unshift("H");
+console.log(myAr);
+myAr.shift();
+console.log(myAr);
+console.log(myAr.length);
+
+myAr.splice(2,0,"power");
+console.log(myAr);
+
+let newAr = myAr.slice(2,4);
+// creates new array ,so we put a variable .
+console.log(newAr);
+
+// There is also sort ,used to order the values in the array.
+newAr.sort();
+console.log(newAr);
+
+// there is also reverse , used to reverse the order of the array.
+
+myAr.reverse();
+console.log(myAr);
+
+
+
+// If statement
+
+let johnage=32;
+
+if(johnage===45){
+    console.log("You are a old man");
+}else if ( johnage <=40 && johnage >= 30 ){
+    console.log("You are about to old ");
+}else{
+    console.log("You are too young");
+}
+
+
+
+
+//    Switch statement
+
+let fruits = "Gauva";
+switch (fruits){
+    case "Apple":
+         console.log("You bought Apple .");
+         break;
+    case "Orange":
+         console.log("You bought Orange .");
+         break;
+
+    case "Pomato":
+         console.log("You bought Pomato .");
+         break;
+
+    case "Gauva":
+         console.log("You bought Gauva .");
+         break;
+    default: console.log(" You bought Nothing");
+}
+
+
+        // Loop
+
+
+
+
+    </script>
+</body>
+</html>

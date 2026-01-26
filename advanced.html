@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVANCED JAVASCRIPT</title>
+</head>
+<body>
+
+    <script>
+            // CLOSURE
+    // function add(a,b){
+    //     function myAdd(){
+    //         const c=a+b;
+    //         return c;
+    //     }
+    //             return myAdd;
+    // }
+    // function main(){
+    //     const res=add(3,4);
+    //     const val= res();
+    //     console.dir(res);
+    // } main();
+
+
+    //
+
+// function main(a){
+//     [1,2,3,4,5,6,7,8].forEach(function (i){
+//         console.log(i,a);
+//     });
+// };
+// main(2);
+
+//
+
+// var ob = [
+//     {name: "vyas",
+//         msg:"hello i am one"
+//     },
+//     {name: "vyasa",
+//         msg: " hello i am two"
+//     },
+//     {name:"vyasan",
+//         msg: "hello i am three"
+//     }
+// ];
+
+// function main(){
+//     ob.forEach((item)=>{
+//         const bt= document.createElement("button");
+//         bt.innerHTML= item.name;
+//         bt.onclick= getCallback(item.msg);
+//         document.body.appendChild(bt);//this is used to add the variable bt to the browser/html
+//     });
+// }
+
+
+// function getCallback(arg){
+//    return function(){
+//     alert(arg);
+// }
+// }
+
+// main();
+
+//
+
+//Objects and Arrays are mutabale , string  and integers is immutable.
+
+
+// const globalPlayer= {
+//     id:0,
+//     name: "vyasan",
+//     powerlevel: 100
+// };
+
+// let player1={...globalPlayer};//copy, its more easier
+// // const player1 = Object.assign({},globalPlayer);//can also copied this way
+
+// player1.powerlevel =40; 
+// console.log(globalPlayer);
+// console.log(player1);
+
+//next in array
+
+// const globalPlayer=["a","d","s"];
+// const globalPlayer1=["w","e","x"];
+
+
+// // const player1=globalPlayer.concat(globalPlayer1);//odd method to merage two array/object
+// // const player1=[...globalPlayer,...globalPlayer1];//merage by spread operator
+// // const player1=[...globalPlayer,"test",2];//push method by spread operator
+// //const player1=[...globalPlayer,globalPlayer1];//if i want to  push array by spread operator
+
+// console.log(player);
+
+
+//
+
+// const globalPlayer=["vyasa","sajeev","simi"];// array destructuring
+
+// const [a,b,c]= globalPlayer;
+// console.log(a);
+
+
+// const globalPlayer={
+//     name:"vyasan",            //object destructuring
+//     id:0,
+//     power: 33
+// };
+// //   const name= globalPlayer.name;// without destructuring
+// const{name,...rest}=globalPlayer;
+// console.log(rest);
+
+
+//forEach method in array method(high order method)
+
+// const globalPlayer=[
+//     {
+//     name:"vyasan",            //object destructuring
+//     id:50,
+//     power: 134
+// },
+//     {
+//     name:"vya",            //object destructuring
+//     id:0,
+//     power: 33
+// },
+//     {
+//     name:"vy",            //object destructuring
+//     id:100,
+//     power: 13
+// }
+// ];
+
+// for(i=0;i<globalPlayer.length;i++){
+//     console.log(globalPlayer[i].name);//if we only want name ,we can write  has .name after globalPlayer[i]
+//}//to simply this method ,forEach is used
+
+// globalPlayer.forEach(function(value,index,array){
+//     console.log(value);
+// });//we can code it in a single line because it can be written in arrow 
+
+// globalPlayer.forEach((value,index,array)=> console.log(value.name));
+
+
+//Map  method in array  method (high order method)
+
+// const globalPlayer=[
+//     {
+//     name:"vyasan",            //object destructuring
+//     id:2,
+//     power: 134,
+//     age: 33
+// },
+//     {
+//     name:"vya",            //object destructuring
+//     id:2,
+//     power: 33,
+//     age: 33
+// },
+//     {
+//     name:"vy",            //object destructuring
+//     id:100,
+//     power: 13,
+//     age: 33
+// }
+// ];
+
+
+// const na= globalPlayer.map(Array=> Array.name);//this is simple because of map method
+// console.log(na);
+
+//without map method
+ 
+// const na =[];
+
+// for(i=0;i<globalPlayer.length;i++){
+//     na.push(globalPlayer[i].name);
+// }
+// console.log(na); //this is hard right
+
+//we can also use filter to filter out anything
+
+// const na= globalPlayer.filter((value)=> value.age === 33 && value.id ===2);
+// console.log(na);//
+
+
+//now we are going to use reduce method it is usually used to calculations in array (high order method)
+
+// const ar=[4,4,5,9,8];
+//normally we calculate like this
+ 
+// let total = 0;
+// for(i=0;i<ar.length;i++){
+//     total=total+ar[i];
+// };
+
+// const arr=ar.reduce((total,value)=> total+value,0);//reduce method has 4 parameters ,but others only has 3 parameters/arguments
+// console.log(arr);
+
+//find method in array method (high order method)
+// const globalPlayer=[
+//     {
+//     name:"vyasan",            //object destructuring
+//     id:2,
+//     power: 134,
+//     age: 23
+// },
+//     {
+//     name:"vya",            //object destructuring
+//     id:2,
+//     power: 33,
+//     age: 22
+// },
+//     {
+//     name:"vy",            //object destructuring
+//     id:100,
+//     power: 13,
+//     age: 24
+// }
+// ];
+// const ar= globalPlayer.find(val=>val.age ===24)
+// console.log(ar);
+
+//sort method (high order method)
+
+// const nuar=[1,2,4,555,5,90,6,594,3495,43,5];
+// const sortb=nuar.sort((a,b)=> a-b); //if we want to sort in ascending order make the parameter first-second.
+// const sortb=nuar.sort((a,b)=> b-a); //if we want to sort in descending order make the parameter first-second.
+// console.log(nuar);
+
+
+ // ES10
+
+//  const arr=[22,442,[24,343],343,343,[23,23,32,[3223,[23,2323,[34,323,[424,434,[34,34]]]]]]];
+//  //if we have infinite nested array we can use flat() method ,but it have a limit to unpack the nested arrays. for infinite array we use a keyword inside the flat(infinty) to unpack all nested arrays.
+
+// const arrr= arr.flat(Infinity);
+// console.log(arrr);
+//
+
+//optional chaining (?.)
+
+// const globalPlayer={
+//     name:"vyas",
+//     id:4,
+//     age:23,
+//     company :{
+//         com_name: "Google"
+//     }
+// };
+
+// // if (globalPlayer && globalPlayer.company && globalPlayer.company.com_name){
+// //     console.log(globalPlayer.company.com_name);//without optional chaining
+// // }
+// if (globalPlayer?.company?.com_name){
+//     console.log(globalPlayer.company.com_name);//with optional chaining
+//}
+
+///////////// All Hight Order Methods Can Be Chained( we chain multiple hight order methods)
+         
+             //chaining
+
+// const nuar=[1,2,4,555,5,90,6,594,3495,43,5];
+
+// const newar= nuar.map((value)=> value)
+//                  .filter((data)=> data>90)
+//                  .sort((a,b)=>a=b)
+//                  .reduce((total,value)=> total+value,0);
+                 
+//                  console.log(newar);
+  
+
+///////////////////////////////////////////////////////////////////////////////
+               
+               //OPTIONAL CHAINING BY NISHA SINGLA
+        
+// const user ={
+//     name: "byas",
+//     id:4,
+//     address:{
+//         city:'hdsd'
+//     }
+// };
+// console.log(user.address?.city);//optional chaining
+// console.log(user.address?  user.address.city: undefined);//ternary operator
+    // console.log(user.address && user.address.city);//logical operator
+
+
+
+// const a={
+//     // b:"8943983",
+//     // c:{
+//     //     d:"ewiej",
+//     //     e:{ 
+//     //         // f:{
+//     //         //     g:34,
+//     //         //     h:"4839",
+//     //         //     i: "jdif"
+//     //         // }
+//     //     }
+//     // }
+    
+//     };
+    // console.log(a.c.e.f.h);
+//     // console.log(a.c.e?.f?.i);
+
+// //   a.getvalue?.();//we can also use optional chaining in function calls . we can check whether the is defined or not ,if it is defined it will use otherwise not
+// // console.log(a.getvalue?.());//because it is not defined
+
+// const key = "d";
+// console.log(a.c?.[key]);
+
+
+// const ob={
+//     name:'djf',
+//     id:0
+// };
+
+// const newOb= ob.id ?? 2; //in this OR operator method  ,truthy and falsy are considered ,so it will not give correct answer . So we use nullish operator.
+
+// console.log(newOb);
+
+  // TO avoid this we can use (??)NULLISH COALISHING
+
+
+</script>
+   
+
+</body>
+</html>

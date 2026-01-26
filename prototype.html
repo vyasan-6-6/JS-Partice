@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prototype</title>
+</head>
+<body>
+    <script>
+
+// let student={
+//     name: "ananl"
+// };
+// console.log(student.__proto__);//object.prototype
+// console.log(student.__proto__.__proto__);//null (because end of the prototype chain)
+
+
+
+//functions and prototype
+
+// In JS, functions are special – they also have a .prototype property.
+    
+//    function person(name){
+//     this.name=name;
+//    };
+
+//    person.prototype.sayHello = function(){
+//      console.log(`hello i am ${this.name}`);
+//    };
+
+//    let p1= new person ("vyasan");
+//    p1.sayHello();
+   
+
+
+// let animal = {
+//     eat : true,
+//     walk(){console.log("Animals walks");
+//     }
+// }
+
+// let dog = Object.create(animal);//creates a new object and passes  a copy of animal object.//dog._proto_ => animal
+    
+// dog.bark =()=>{
+//     console.log("Woof!");
+// };
+
+//   dog.walk();//from animal
+//   dog.bark();//itself
+
+///////////////eg from nisha's video
+
+//    function User(name){
+//     this.name = name;
+//     // // this.getDetails = function (){
+//     // //     console.log(this.name);
+//     // }
+//    };
+
+// User.prototype.getDetails=function(){
+//     console.log(this.name);
+// };
+
+
+// let p1 = new User("vyas");
+// let p2 = new User("nisha");
+//   p1.getDetails();
+//   p2.getDetails();
+
+////////////eg
+
+
+//   let user = ['vyasan','nisha'];
+
+//   Array.prototype.getMethod = function(){
+//     console.log(
+//         "Some Random Method" );
+//   };
+// //   user.getMethod();
+ 
+
+
+///eg
+
+// function Phone(){
+//     this.modelNumber = "";
+//     this.getModelNumber = function (){
+//         return this.modelNumber;
+//     };
+// };
+
+
+// function Samsung(){
+//     this.modelNumber = "XXX-YYYY";
+//     this.lastestFeature = function(){
+//         console.log(`samsung has a galaxy new phone nice phone .`);
+//     };
+// };
+
+// Samsung.prototype = new Phone();
+
+// let obj = new Samsung();
+
+// console.log(obj.getModelNumber());
+// obj.lastestFeature();
+
+
+////////PROTOTYPICAL INHERITANCE
+
+
+//   function Person(name){
+//     this.name = name;
+//   };
+
+//   Person.prototype.sayHello = function (){
+//     console.log(`hello i am ${this.name}.`);    
+//   };
+
+//   function Student(name,grade){
+//     Person.call(this,name)//inherit properties
+//     this.grade = grade;
+//   };
+
+
+//   Student.prototype = Object.create(Person.prototype);
+
+//   //reset constructor 
+
+//   Student.prototype.constructor = Student;
+
+
+//   Student.prototype.study = function (){
+//     console.log(`${this.name} is studing in ${this.grade}.`);
+//      };
+
+
+//      let s1 = new Student('vyas', 'Z');
+
+//      s1.study();
+//      s1.sayHello();
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+ </body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1>JavaScript Generators</h1>
+<p>A generator returns an object with two properties: value and done.</p>
+<p id="demo"></p>
+
+<script>
+//     let myGen = mySteam();
+//     let text  = "";
+    
+    
+//     for(val of myGen){
+//         text += value + "<br>>";
+//     };
+    
+//     function* mySteam(){
+//        return {value: 1,done:true}
+//            yield 1;
+//           return  {value: 2,done:true}
+//            yield 2;
+//           return  {value: 3,done:true}
+//            yield 3;
+//        };
+
+
+
+// document.getElementById("demo").innerHTML = text;
+
+
+/////eg Currying by bind method
+
+// let multiply = function(x,y){console.log(x*y);};
+
+ 
+
+// let multiplyByTwo = multiply.bind(this  );
+// multiplyByTwo ((4),3);
+
+
+/// currying by closure
+
+// function multiply(x){
+//     return function (y){
+//         console.log(x*y);
+//     };
+// };
+
+
+// let multiplyByTwo = multiply(2);
+// multiplyByTwo(3);
+
+/////eg of cb
+ 
+
+//    function hiBack(name,callback){
+//     console.log(`Hello ${name}`);
+//     callback();
+//    };
+
+//   function hiAll(){
+//     console.log(`Hi goodbye all!`);
+//   };
+  
+  
+//   hiBack("vyasasn",hiAll)
+
+
+//eg  of callback giving  sum
+
+
+//  function add(x,y,cb){
+//     let sum = x+y;
+//     cb(sum);
+//  };
+
+//  add(2,5,re => console.log(re));
+
+
+
+////eg convert to cb
+
+// function fetchData(callback) {
+//   setTimeout(() => {
+//     callback("Data received!");
+//   }, 1000);
+// }
+
+// fetchData(msg => console.log(msg));
+
+// function fetchData (cb){
+//     console.log("hi");
+    
+//     cb('data recevied!');
+// } 
+
+// fetchData(function (re){
+//     console.log(re);
+    
+// })
+
+///eg of promise
+
+// let promise = new Promise((res,rej)=> {
+//     res("resolved !");
+//     rej("failed !");
+// });
+
+// promise.then(res => console.log(res)).catch(re => console.log(re))
+
+
+
+/// loop
+
+
+// const arr = [11,22,33,44,55,66,77,88,99,0];
+// let largest = arr[0];//assume first number is the largest
+// for(let i = 1 ; i<arr.length;i++){
+ 
+//     if( arr[i]> largest){
+//     largest = arr[i];
+//     }
+// };
+// console.log("the largest is :", largest);
+
+
+//IIFE
+
+//  (function (na){
+//     console.log("Hello Guys!",na);
+//  })("vysa");
+
+
+// let result = (function(a,b){
+//     return a+b;
+// })(5,7);
+
+// console.log(result);
+
+
+// let result = function (a,b){
+//     return a+b;
+// };
+
+// console.log(result(8,9));
+
+
+
+      
+//  (async function () {
+//     console.log("async IIFE runs !");
+//  })(); 
+
+
+
+// let count = 89; 
+
+
+// (function (){
+//     let count = 24;
+//     console.log(count);
+// })();
+// console.log(count);
+
+
+///eg of call apply and bind 
+
+// function greet(city){
+//     console.log(`hello i am ${this.name} from ${city}`);
+// };
+
+
+// let person = {
+//     name :"vyasan"
+// };
+
+// greet.call(person,"angalos","fjdf")
+
+
+
+// function introduce(skill1, skill2) {
+//   console.log(`${this.name} knows ${skill1} and ${skill2}`);
+// }
+
+// let developer = { name: "Alex" };
+
+// introduce.apply(developer,["JS","REACT"])
+
+
+// let person = {
+//   name: "Rahul",
+//   greet: function() {
+//     console.log("Hi " + this.name);
+//   }
+// };
+
+// let fn = person.greet.bind(person);
+// fn(); 
+
+
+
+// ///generator function
+// function* greet(){
+//     yield 1;
+//     yield 2;
+//     yield 3;
+// };
+
+// let gen = greet();
+
+
+// console.log(gen.next().value);
+// console.log(gen.next().value);
+// console.log(gen.next().value);
+
+
+///currying
+
+// function add(a) {
+//   return function(b) {
+//     return a + b;
+//   }
+// }
+
+// console.log(add(5)(10)); // ?
+
+
+
+
+// const arr = [10, 20, 30];
+// let copy = [...arr];
+// copy = [33,88,99]
+// console.log(copy);
+
+
+// const a = [ 3,33,33];
+// const b = [ 22,2 ,22,22];
+// const merged = [ ...a,...b];
+
+// console.log(merged);
+
+
+// function sum(a,b,c){
+//     return a+ b  + c;
+// };
+
+// const a =[ 1,4,3];
+// console.log(sum(...a));
+
+
+
+// const user = {name: "Alice", age: 25};
+// const copy = {...user} ;
+// console.log(copy);
+
+
+// const obj1 = {a: 1, b: 2};
+// const obj2 = {b: 3, c: 4};
+// const merged = {...obj1, ...obj2};
+// console.log(merged);
+
+// const str = "Hi";
+// console.log([...str]);
+
+
+// const arr1 = [1, 2, 3];
+// const arr2 = [...arr1, 4, ...[5, 6],...[4,3,39,0]];
+// console.log(arr2);
+
+// const a = [1, 2];
+// const b = a;
+// b.push(3);
+// console.log(a); 
+
+
+// const a = [1, 2];
+// const b = [...a];
+// b.push(3);
+// console.log(a); // ?
+
+
+
+// const nested = [[1], [2]];
+// const copy = [...nested];
+// copy[0].push(99);
+// console.log(nested);
+
+// const arr = [1, 2, 3];
+// const copy = [...arr];
+// copy[0] = 99;
+// console.log(copy);  
+
+// const arr = [[1, 2], [3, 4]];
+// const copy = [...arr];
+// copy[0][0]= 11;
+// // console.log(arr);
+
+
+
+// const obj = {name: "Alice", address: {city: "NY"}};
+// const copy = Object.assign({},obj);
+// copy.address.city = "London";
+// console.log(obj.address.city);
+
+
+// const obj = {a: 1, b: {c: 2}};
+// const deepCopy = JSON.parse(JSON.stringify(obj));
+// deepCopy.b.c = 4;
+// console.log(obj);
+
+
+
+
+// const user = {name: "John", details: {age: 30}};
+// const copy = {...user};
+// copy.details.age = 40;
+// console.log(user.details.age);
+
+// const obj = {name: "Jane", address: {city: "Paris"}};
+// const deepCopy = structuredClone(obj);
+// deepCopy.address.city = "jfdfj";
+// console.log(obj.address.city);
+
+// const obj = {x: 1, greet: () => "Hi"};
+// const deepCopy = JSON.parse(JSON.stringify(obj));
+// console.log(deepCopy.greet);
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

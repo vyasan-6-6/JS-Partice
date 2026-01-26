@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Namasthe JavaScript </h1>
+
+    <button id="clickMe">click me</button>
+    <script>
+ //
+
+//  setTimeout(()=>{
+//     console.log("running 2");
+    
+//  },0);//this is a asyncrounus function ,it always enter into  call stack after every syncrounus function is executed.
+
+//  console.log("running 1");
+//  console.log("running 3");
+//  console.log("running 4");
+ 
+
+//  //eg domo
+// const button = document.querySelector("button");
+
+// button.addEventListener("click",()=>{
+//     console.log("button Clicked");
+// });//this is a asynocrounus function .when we click the button it moves from Queue to call stack
+  
+   //CALLBACK FUNCTIONS
+
+  console.log("Start");
+
+   function getDataFromAPI(callback){
+    
+    setTimeout(()=> {
+        callback( "Vyasan");
+    },2000);
+    
+   };
+
+getDataFromAPI((value)=>{
+    console.log(value)
+});
+
+   console.log("End");
+   
+   
+  
+  
+  
+  
+ 
+   
+//next eg by akshay saini
+
+    // setTimeout(function(){
+    //     console.log("Timer");
+    // },5000);
+
+
+    // function x(y){
+    //     console.log("x");
+    //     y();
+
+    // };
+
+    // x(function y(){
+    //     console.log("y");
+    // });
+
+////here a button is created 
+
+
+// function attachEventListeners(){
+//     let count=0;
+// document.getElementById("clickMe")
+// .addEventListener("click",function xyz(){
+//     console.log("button Clicked",++count);
+// });
+// };
+// attachEventListeners();
+
+  
+  
+  </script>
+</body>
+</html>

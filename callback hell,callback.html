@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback hell,callback</title>
+</head>
+<body>
+    <script>
+function getUser(callback){
+    setTimeout(() =>callback({id:2,name:"vyasan"}), 1000);
+};
+
+function getPosts(userId,callback){
+    setTimeout(() => callback(["Post1","Post2"]), 1000);
+};
+
+function getComments(Posts,callback){
+    setTimeout(() => callback(["comment A", "comment B"]), 1000);
+};
+
+
+getUser(function (user){
+     console.log("user:",user);
+    
+getPosts(user.id,function(Posts){
+    console.log("Posts:",Posts);
+
+getComments(Posts[0],function(comments){
+    console.log("comment on the first Posts:",comments);
+    
+});    
+    
+});      
+});
+ 
+</script>
+</body>
+</html>

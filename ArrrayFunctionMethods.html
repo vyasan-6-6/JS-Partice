@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // forEach() filter() map() reduce()
+
+
+    //     const arr = [
+    //         {
+    //       name:"Alice",
+    //       mark:35,
+    //       place: "Kannur"
+    //     } 
+    //        , {
+    //       name:"vyasan",
+    //       mark:28,
+    //       place: "thrissur"
+    //     } 
+    //        , {
+    //       name:"catherine",
+    //       mark:44,
+    //       place: "palakkad"
+    //     } ,
+    //         {
+    //       name:"denial",
+    //       mark:23,
+    //       place: "kollam"
+    //     } 
+    // ];
+
+
+//forEach
+    // let sum  =0;
+    // arr.forEach((item,index,array)=>{
+    //     console.log(index);
+        
+    // });
+
+//find 
+
+// let name = arr.find((item) => {
+//     return item.mark > 30;
+// });//returns first matching element
+// console.log(name);
+
+// let name = arr.find(item => item.mark >= 39);
+// console.log(name);
+
+
+// filter
+
+
+// let name = arr.filter(item => item.mark >30);//returns all matching pairs in a new array.
+// console.log(name);
+
+// let name = arr.filter((item,index,ar)=> {
+//     return item.name === "vyasan"
+// });
+// console.log(name);
+
+
+
+//map
+
+
+//  let Arr = arr.map(item =>{
+//     return {
+//         ...item,country:"vitianam"
+//     }
+//  });
+//  console.log(Arr);
+
+
+//reduce
+ 
+// let ne = arr.reduce((total,item) => {
+//     return item.mark + total;
+// },0);
+
+//   let ne = arr.reduce((total,item)=>{
+//     total.push(item.name);
+//     return total;
+//   },[])
+
+// console.log(ne);
+
+
+// map 
+
+// const user = [ "v","y","a","s","a","n"];
+
+// function userModi(val){
+//    return val.toUpperCase();
+// };
+// // const modifiedUser = user.map(userModi);
+// // const modifiedUser= user.map(function userModi(val){
+// //    return val.toUpperCase();
+// // });//another method
+// const modifiedUser = user.map(val => val.toUpperCase());//another 
+// console.log(modifiedUser);
+
+//eg
+
+//  const user2 = [ 
+//   {  id: 52,  name:'vv'},
+//   {  id: 12,  name:'v'},
+//   {  id: 32,  name:'vvf'},
+//   {  id: 2,  name:'vvfd'},
+//  ];
+
+// //  const user_list = user2.map(name => name.name);
+// // const user_list = user2.map(function (val){
+// //   return val.name;
+// // });
+// //  console.log(user_list);
+
+// let result = [];
+//  user2.forEach(function (name){
+//   return  result.push(name.name)
+//  })
+// ;
+
+//  console.log(result);
+ 
+ 
+////////filter()
+
+
+// let employees = [
+//   {id:22, name:"nhgj",profile:"junior"},
+//   {id:2, name:"sfdy",profile:"senior"},
+//   {id:32, name:"ere",profile:"junior"},
+//   {id:42, name:"fg",profile:"senior"},
+//   {id:52, name:"bg",profile:"senior"},
+// ];
+
+
+// const experiencedEmployee = employees.filter(function(emp){
+//    return emp.profile === "senior";
+// });
+
+
+// const inexperiencedEmployee = employees.filter( emp => emp.profile === "junior" );//arrow function
+// // const inexperiencedEmployee = employees.filter(function (emp){
+// //   return emp.profile=== "junior";
+// // })
+// console.log("senior developer:",experiencedEmployee);
+// console.log("junior developer:",inexperiencedEmployee);
+
+//////reduce
+
+//  const scoe = [ 100,200,40 ,10];
+
+//  function calculate(score){
+//   let sum =0;
+//   for(let i = 0 ; i< score.length; i++){
+//     sum += score[i];
+//   } return sum;
+//  };
+
+//  console.log(calculate(scoe));
+//  //by reduce()
+
+// //  let summ = scoe.reduce ( (total,value)=> total + value,0);
+//  // in normal fn
+//  let summ = scoe.reduce(function(total,value){return total+ value});
+//  console.log("Total:",summ);
+ 
+ ////////complex eg using map,reduce,filter
+
+// let employees = [
+//   {id:22, name:"nhgj",profile:"junior" ,rating1:5,rating2:10},
+//   {id:2, name:"sfdy",profile:"senior" ,rating1:6,rating2:50},
+//   {id:32, name:"ere",profile:"junior" ,rating1:7,rating2:14},
+//   {id:42, name:"fg",profile:"senior" ,rating1:9,rating2:4},
+//   {id:52, name:"bg",profile:"senior" ,rating1:91,rating2:16},
+// ];
+
+
+
+
+
+// const seniorDeveloper = employees.filter(emp => emp.profile === "senior");
+
+// console.log(seniorDeveloper);
+
+// const seniorRating = seniorDeveloper.map(function (val){
+  // return val.rating1 + val.rating2;
+// });
+
+// console.log(seniorRating);
+
+// const totalSeniorRating = seniorRating.reduce((total,element)=> total+element,0);
+// console.log(totalSeniorRating);
+
+///you can also use chaining method 
+
+// const totalSeniorRating = employees.filter(emp => emp.profile === "senior")
+// .map(function(val){return val.rating1 + val.rating2;})
+// .reduce((total,element)=> total+ element);
+
+// console.log(totalSeniorRating);
+
+/////////all this can be make only with reduce fn
+
+  
+
+// let grandTotal = employees.reduce((total,element)=>{
+//   if(element.profile=== "senior"){
+//     total = total +element.rating1 + element.rating2;
+//   } return total;
+// },0);
+
+// console.log(grandTotal);
+
+
+
+// Reduce to get total ratings of seniors
+// let total = employees.reduce((total, emp) => {
+//   if(emp.profile === "senior"){
+//     total.rating1 =total.rating1+ emp.rating1;
+//     total.rating2 = total.rating2 + emp.rating2;
+//   }
+//   return total;
+// },{rating1 :0,rating2:0}) ;
+
+// console.log(total);  
+
+         ////////////const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+
+// const fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+// let  count = fruits.reduce((acc,fruit)=>{
+// acc[fruit] =(acc[fruit] || 0)+1; return acc;
+// },{}) ;
+
+// console.log(count);
+
+// { apple: 3, banana: 2, orange: 1 }
+
+
+
+// for(i=0;i<num.length;i++){
+  //   console.log(num[i]);
+  // };
+  
+  // num.forEach(nu =>{
+  //   console.log(nu);
+  // });
+  
+  // let ob =
+  // "vyas"
+  // let o = Array.from(ob);
+  
+  // console.log(o);
+  
+  
+  // let obj = { name:'bh', id :4};
+  
+
+
+  // for(let value in obj){
+  //   console.log(value,obj[value]);
+    
+  // }
+  // let yy = Array.from(obj.name);
+  // console.log(yy);
+  
+//   let num =[232,32,324,45,88,77,8,9,0,47];
+// for(let i  of num){
+//   console.log(i);
+// };
+
+// for( let i in num){
+//   console.log(i);
+// }
+
+
+// // for in loop
+// let person = { name: "John", age: 25 };
+// for (let key in person) {
+//   console.log(key, person[key]);
+// }
+// name John
+// age 25
+
+
+
+// //for of loop
+// let arr = [10, 20, 30];
+// for (let value of arr) {
+//   console.log(value); // 10, 20, 30
+// }
+
+//Array from()
+
+// let arr = [ 2,3,5,6];
+
+// let ff = Array.from(arr, num => num*num);
+// console.log(ff);
+  
+ 
+
+//  let id = setTimeout(() => {
+//   console.log('vhud');
+  
+//  }, 2999);
+
+
+//  clearTimeout(id);
+
+
+
+//  let u =setInterval(()=>{
+//   console.log("dskdslk");
+  
+//  },2000);
+ 
+//  clearInterval(u);
+//  let div = document.createElement("div");
+
+//  div.textContent = "helllo minna";
+
+//  div.classList.add("boc");
+
+//  document.body.appendChild(div)
+
+
+// Access window properties
+// console.log(window.innerWidth); // viewport width
+// console.log(window.location.href); // current URL
+
+// // Alert using window
+// window.alert("Hello!"); // same as alert("Hello!")
+
+//   function newArray(){
+//     let a = [1,2];
+//     let b = [1,2];
+//  console.log(a==b);
+//     console.log(a===b);
+    
+//   }
+//   newArray();
+   
+</script>
+</body>
+</html>
+ 

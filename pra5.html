@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODULES PRACTICE</title>
+    <script src="javascript1.js"></script>
+    <script src="javascript.js"></script>
+    
+    <script type="module"  src="module.js"></script>
+</head>
+<body>
+    <script>
+        
+      var ob = [
+    {name: "vyas",
+        msg:"hello i am one"
+    },
+    {name: "vyasa",
+        msg: " hello i am two"
+    },
+    {name:"vyasan",
+        msg: "hello i am three"
+    }
+];
+
+function main(){
+    ob.forEach((item)=>{
+        const bt= document.createElement("button");
+        bt.innerHTML= item.name;
+        bt.onclick= myCallback;
+        document.body.appendChild(bt);
+    });
+}
+function myCallback(){
+    alert('hi');
+}
+main();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><link rel="icon" href="data:,">
+
+</head>
+<body>
+    <script>
+//         // Loop
+// let count = 2;
+// // while(count<=19){
+// //     console.log(count);
+//     break;
+// }
+    
+    // do-while loop 
+
+//   do{
+//     console.log(count);
+//     count++;
+//   }
+//   while(count<=10);
+    
+    // looping of Array
+
+    // let myAr = ["john","vyasan","ohmdurga"];
+    // for(let i=0;i<myAr.length;i++){
+    //     // console.log(myAr[i]);
+    //     document.write(myAr[i]+ "<br>");
+    //     // to directly print in the browser    
+    //      };
+
+
+    // simple way to loop array (for of loop),it not mainly used ,just for extra knownledge.
+
+    // for(let x of myAr){
+    //     document.write(x + "<br>");
+    // };
+    
+    
+// looping of objects
+   
+// let myObj ={
+//     name:"vyasan",
+//     lastName:"k s",
+//     age: 54
+// };
+
+// for(let x in myObj){
+//     document.write(myObj[x]+"<br>");
+    
+// };
+
+
+///////// to bulid logic 
+
+// const  arr = ["vyas","fgfd","rahyl","ema","rahyl", "rohit","vyas"];
+
+
+// let result = [];
+// for(i = 0; i<arr.length ; i ++){
+  
+//     let count =0;
+     
+
+
+// for(j=0; j <arr.length ; j++){
+//     if(arr[i] === arr[j]){
+//         count++;
+//     }
+// }
+
+//     if(count ===1){
+//         result.push(arr[i])
+//     }
+//     };
+// console.log(result);
+
+
+
+// const fill = arr.filter((item) => arr.indexOf(item) === arr.lastIndexOf(item) );
+// console.log(fill);
+// const filteredArray = arr.filter((ite)=> arr.indexOf(ite) === arr.lastIndexOf(ite));
+
+// console.log(filteredArray);
+
+// const same = arr.filter( (same, index) => arr.indexOf(same)!== arr.lastIndexOf(same)  &&  arr.indexOf(same) === index);
+
+// console.log(same);
+
+
+//////////eg
+
+// const arr = ["vyas", "fgfd", "rahyl", "ema", "rahyl", "rohit", "vyas"];
+// let repeated = [];
+
+// for (let i = 0; i < arr.length; i++) {
+//   if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
+//     if (!repeated.includes(arr[i])) {
+//       repeated.push(arr[i]);
+//     }
+//   }
+// }
+
+// const j = arr.filter((item,index) => arr.indexOf(item) !==arr.lastIndexOf(item) &&  arr.indexOf(item) === index);
+// console.log(j);
+
+
+// for(let i = 0 ; i < arr.length ; i ++){
+//     if(arr.indexOf(arr[i])  !==  arr.lastIndexOf(arr[i])){
+//         if(!repeated.includes(arr[i])){
+// repeated.push(arr[i])
+//         }
+//     }
+// }
+
+// console.log(repeated);
+
+// const ob = {
+//     name: 'jdk',
+//     id:8
+// };
+
+// const obb = {...ob, y:88,h:88};
+
+// console.log(obb);
+
+// const ar = [ 2,4,4,5,1,7,8];
+
+// const arr = [ ...ar,"hi ","dfj","jfh"];
+ 
+// console.log(arr);
+
+// async function hi() {
+    
+
+// return "Hello"
+// };
+
+// hi().then(console.log)
+
+
+// async function demo() {
+//     console.log("1");
+//     await Promise.resolve();
+//     console.log("2");
+// }
+// demo();
+// console.log("3");
+ 
+//  function multiply(a,b,c){
+//     return a*b*c;
+//  }
+
+// console.log(multiply(2,2,1));
+
+// function multiply(a){
+//     return function(b){
+//         return function(c){
+//             return a*b*c;
+//         };
+//     };
+// };
+
+// console.log(multiply(3)(8)(9));
+
+// function greet(greeting){
+//     return function(name){
+//         console.log(`${greeting} , ${name}`);
+//     }
+// };
+
+// const sayHello = greet("Hello smart Guy ");
+
+// sayHello("Vyasan");
+// sayHello("Jishna");
+
+
+// // Currying with arrow functions
+// const sum = a => b => a+b;
+
+// console.log(sum(3)(2));
+
+
+// function calculate(a, b, c) {
+//   return a + b - c;
+// }
+
+
+// console.log(calculate(3,4,2));
+
+
+// function cal(a){
+//     return function (b){
+//         return function(c){
+//             return a + b - c;
+//             ;
+//         };
+//     };
+// };
+// console.log(cal(3)(4)(2));
+
+
+
+//generator function 
+
+// function* greet(){
+//     let a = yield "Hello World";
+//     console.log(a);
+// };
+
+// let g = greet();
+
+// console.log(g.next().value);
+// g.next(24);
+
+// console.log(g.next().done);
+
+
+// function* inf(){
+//     let i = 0;
+//     while(true){
+//         yield i++;
+//     };
+// }
+// let f = inf();
+// console.log(f.next().value);
+// console.log(f.next().value);
+// console.log(f.next().value);
+
+// function* inner() {
+//   yield 1;
+//   yield 2;
+// }
+
+// function* outer() {
+//   yield* inner();
+//   yield 3;
+// }
+
+// console.log([...outer()]);
+
+
+
+
+</script>
+</body>
+</html

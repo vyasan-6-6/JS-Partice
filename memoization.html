@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// function add(x){
+//     return 10 + x;
+// };
+
+// const memo = (func) =>{
+//     let cache = {};
+// return function (x){
+//    if(cache[x]){
+//     console.log(cache);
+//     console.log("Returing result from cache ..");    
+//     return cache[x];
+//    }else{
+//     console.log("Calculating the result ..");
+//     const result = func(x);
+//     cache[x] = result;
+//     return result;
+    
+//    }
+// }
+// }
+
+// const cal = memo(add)
+// console.log(cal(4));
+// console.log(cal(4));
+
+//if multiple arguments 
+
+
+// function add(...data){
+//     return data.reduce((total,curr)=> total+curr,0);
+// };
+
+
+// const memo = (func) =>{
+//     let cache = {};
+//     return function(...args){
+//         const keys = JSON.stringify(args)
+//         if(cache[keys]){
+//             console.log(cache);
+//             console.log('returing result from cache ..');
+//             return cache[keys];
+//         }else{
+//    console.log("Calculating the result ...");
+//    const result = func(...args);
+//    cache[keys] = result;
+//    return result;
+//         }
+//     }
+// }
+
+// const calcul = memo(add);
+// console.log(calcul(1,2,3,4,5,5));
+// console.log(calcul(1,2,3,4,5,5));
+ 
+
+
+
+
+// let arr = [10, 20, 30];
+// let iterator =  arr[Symbol.iterator]();
+
+// console.log(iterator.next()); // { value: 10, done: false }
+// console.log(iterator.next().value); // { value: 20, done: false }
+// console.log(iterator.next()); // { value: 30, done: false }
+// console.log(iterator.next()); // { value: undefined, done: true }
+
+// let map = new Map([
+//     ["name", "alice"],
+//     [ "age", 25]
+// ]);
+
+
+// for(let [key,value] of map){
+//     console.log(key,value);
+// };
+
+// name Alice
+// age 25
+
+
+
+// let set = new Set([10, 20, 30]);
+// for (let val of set) {
+//   console.log(val); // 10, 20, 30
+// }
+ 
+
+
+// function test() {
+//   for (let arg of arguments) {
+//     console.log(arg);
+//   }
+// }
+// test("a", "b", "c"); // a, b, c
+
+// let divs = document.querySelectorAll('div');
+// for(let div of divs){
+//     console.log(div.textContent);
+    
+// }
+ 
+
+
+// let map = new Map();
+// map.set("name", "Alice");
+// map.set(0, "Number key");
+// map.set(8, "Object key");
+// map.set("make",{name:"vyasan"})
+
+// console.log(map.get("name")); // Alice
+// console.log(map.size); // 3
+// console.log(map.get('make'));
+// console.log(map.get(8));
+
+
+
+// let set = new Set([1, 2, 2, 3, 4]);
+// console.log(set); // Set { 1, 2, 3, 4 }
+// console.log(set.has(3)); // true
+// console.log(set.size); // 
+// console.log(set);
+// console.log(set.has(8));
+// console.log(set.size);
+// console.log(set.add(28));
+// console.log(set.entries());
+// console.log(set.size);
+
+
+</script>
+</body>
+</html> 

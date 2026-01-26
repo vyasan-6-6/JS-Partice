@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ERROR HANDLING WITH POPUP</title>
+    </head>
+    <body>
+        <button onclick="safeDivide(10,2)">Divide 10/2</button>
+        <button onclick="safeDivide(5,0)">Divide 5/0</button>
+        <script>
+            function divide(a, b) {
+                if (b === 0) {
+                    throw new Error("Cannot divided by Zero");
+                }
+                return a / b;
+            }
+
+            function safeDivide(a, b) {
+                try {
+                    let result = divide(a, b);
+                    alert("Result :  " + result); //success pop
+                } catch (err) {
+                    alert("Error : " + err.message);
+                } finally {
+                    console.log("Operation Completed.");
+                }
+            }
+        </script>
+    </body>
+</html>

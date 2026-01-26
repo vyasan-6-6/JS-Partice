@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+</body>
+<h1 id="header" class="i">
+  test
+</h1>
+
+<h2 id="vy"> vyasan</h2>
+<strong>HELLO A;;LL</strong>
+  <h1 id="hheader" class="hheader">WECLOME MAN</h1>
+  <h1 id="hheader" class="hheader">WECLOME muunMAN</h1>
+  <h1 id="hheader" class="hheader">WECLOME muunMANfghfghhfhg</h1>
+  <h1 id="hheader" class="hheader">WECLOME mfgfggfggunMANGGHRTYBHFGVV</h1>
+
+<script > 
+
+//DOM SELECTORS
+
+// document.getElementById("hheader").innerHTML = " VYASAN K S";
+//using query selectors   
+//   // querySelectors only styles first element
+//querySelectors styles one element and querySelectorsAll styles multiple elements
+// document.querySelector("#hheader").style.color= "red";//in this we want to use . or # because it is queryselectors
+// document.querySelectorAll("#hheader")[1].style.color= "red";//we can use querySelectorAll ,but it creates a node list , so to use this we want to show which index element to be styled or anything.
+//going to loop this 
+const header= document.querySelectorAll("#hheader");
+header.forEach((data)=> (data.style.color="red"))
+// DOM Manipulation
+document.getElementById("header").innerHTML = "debug media";
+document.getElementById("header").style.color = "blue";
+document.getElementById("header").style.fontSize = "33px";
+document.getElementById("header").style.backgroundColor = "yellow";
+document.getElementById("header").style.display = "block";
+// document.getElementsByTagName("body")[0].src="./image.png"
+
+
+
+// if any file is inside a folder the we use "./"and in outside it we use "../"and if normal seen in the file we only use it's name.It is used when connecting the file in other folders or in same folders.
+
+
+
+
+
+// USE OF VARIABLES in DOM Manipulation
+
+var vya = document.getElementById("vy");
+
+vya.innerHTML = "vyasan k s";
+vya.style.color = "blue";
+vya.style.fontSize = "35px";
+
+var he = "OPEN THE WALL AM NI";
+console.log(he);
+
+document.getElementsByTagName("strong")[0].innerHTML= he;
+
+
+var a,b,c;
+a=2;
+b=8;
+c= a+b;
+console.log("a == "+a);
+console.log("b == "+b);
+console.log("c == "+c);
+c+=3;
+console.log("c == "+c);
+c++;
+console.log("c == "+c);
+c--;
+console.log("c == "+c);
+c-=10;
+console.log("c == "+c);
+c*=2;
+console.log("c == "+c);
+// also use %,/
+
+
+
+
+let g =3;
+let r=4;
+console.log(g>1 && r>3);
+
+
+// CONDITIONAL OPERATORS
+
+
+let x=8;
+let y=x != 8 ? true : false;
+
+console.log(y);
+
+
+
+
+// if only one parameter is passed 
+
+myfun = c => c;
+console.log(myfun(29));
+
+
+// function
+
+function myfun(o){
+  let l=2;
+  let k= o;
+  let h= l+k;
+  return h;
+}
+console.log(myfun(40));
+
+</script>

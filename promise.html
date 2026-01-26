@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROSIMISES</title>
+</head>
+<body>
+    <script>
+        // function orderFood(isRestaurentOpen,hasIngridents){
+        //     return new Promise((resolve,reject)=>{
+        //         console.log("promise is pending.....(waiting for result)");
+             
+        //     setTimeout(() =>{
+        //         if(!isRestaurentOpen){
+        //             reject("restauent is closed!");
+        //         }else if (!hasIngridents){
+        //             reject("hasIngridents is not availabile")
+        //         }else{
+        //             resolve("Your food is ready!")
+        //         }
+        //     }, 1000);    
+                
+        //     });
+        // };
+
+
+ //case 1 : Restaurents are open and ingridents are available.       
+        // orderFood(true,true);
+        // orderFood(true,true).then(result => console.log(result));//runs if success/resolved
+        // orderFood(true,true).catch(error=> console.log(error));//runs if failed 
+        // orderFood(true,true).finally(()=>console.log("order process finished"));//runs if resolved / failed 
+ 
+ //case 2 : Restaurents closed - rejected
+ 
+        // // orderFood(false,true);
+        // orderFood(false,true).then(result => console.log(result));//runs if success/resolved
+        // orderFood(false,true).catch(error=> console.log(error));//runs if failed 
+        // orderFood(false,true).finally(()=> console.log("order process finished"));//runs if resolved / failed 
+ 
+//case 3 : Ingridents missing - Rejected
+        // orderFood(true,false);
+        // orderFood(true,false).then(result => console.log(result));//runs if success/resolved
+        // orderFood(true,false).catch(error=> console.log(error));//runs if failed 
+        // orderFood(true,false).finally(()=> console.log("order process finished/n"));
+
+
+//if we do same as above with async await
+
+// async function eatFood() {
+//     try{
+//         const result = await orderFood(false,true);
+//         console.log(result);   // if resolved 
+        
+//     }catch (error) {
+//         console.log(error);   //if rejected 
+        
+//     }finally{
+//         console.log("done");
+        
+//     };
+    
+// };
+
+//     eatFood();
+
+
+
+
+
+//SUPER SIMPLE EXAMPLE 
+
+//CALLBACK
+
+
+// function getUser(callback){
+//     setTimeout(() =>{callback("vyasan")}, 1000);
+// };
+
+//   getUser(function(name){
+//     console.log("callback:",name);
+    
+//   })
+
+
+ //same written using promise
+ 
+//  function getUser(){
+//     return new Promise((resolve,reject) => {
+//         setTimeout(() => {
+            // resolve("radwaan");
+//         }, 1000);
+//     });
+//  };
+
+//   getUser().then(name=> console.log("name:",name));
+// getUser().catch(err => console.log("Error:",err));
+
+
+
+//same written using async and await 
+ 
+// function getUser(){
+//    return new Promise((resolve,reject)=> {
+//     setTimeout(() => {
+//         resolve("👲 Radwaan");
+//     }, 1000);
+//    })
+//  };
+//     async function showUser(){
+//         try{
+//             const name = await getUser();
+//              console.log("Async/await:",name );
+//         }catch(err){
+//             console.log("Error:",err);
+//             }
+//     };
+
+//         showUser();
+
+
+// eg from debug media's video
+
+//   const promise = new Promise ((resolve,reject)=>
+// {
+//   resolve("Success!");
+// });
+
+//   promise.then(Response=> console.log(Response) );
+
+//if failed 
+// const promise = new Promise ((resolve,reject)=> {
+//     // resolve("success");
+//     reject("failed!");
+// });
+
+// // promise.then(Response=> console.log(Response));
+//  promise.catch(error=> console.log(error));
+  
+  
+  
+  
+ //next example
+ 
+//    function getDataFromAPI(num){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//           resolve(num)  
+//         }, 1000);
+//     })
+//    }
+//   function getDataFromAPI2(num){
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(() => {
+//             resolve(num)
+//         }, 1000);
+//     })
+//   }
+  
+  
+//   getDataFromAPI(5).then(Response=>{return getDataFromAPI2 ( Response +5)})
+//    .then(Response=>{console.log(Response);
+//    });
+
+
+///next eg from second video of debug media
+
+
+//    const promise1= new Promise((resolve,reject)=>{
+//     resolve(["vyasan","alisha"])
+//    });
+//    const promise2= new Promise((resolve,reject)=>{
+//     resolve(["arjun","lovely"])
+//     // reject("API Failed!")
+//    });
+
+// //    promise1.then((res)=>{console.log(res); })
+// //    promise2.then((res)=>{console.log(res); })
+   
+
+// //if all api's succecced we can use Promise.all ,but if one fails it's not displayed
+//    ///////Promise.all
+//    const promiseAll= Promise.all([promise1,promise2]);
+//    promiseAll.then((res=>{console.log(res);
+//    }))//here array is inside a array
+//    .catch(err=> {
+//     console.log(err);});
+//     //to make it in single array we use flat(infinity),like .then(res=> {console.log(res.flat())});
+
+// //there is other keyword Promise.allsettled,it returns results whether it fail's or succeed
+
+//   /////Promise.allsettled
+
+//     const promiseAllSettled= Promise.allSettled([promise1,promise2]);
+//     promiseAllSettled.then(res=> {console.log(res);
+//     });
+
+    // there is also Promise.any =returns a single promise after success,if everything fails it shows "All Promises were rejected".
+    //there is also Promise.race =returns a single promise as soon as it fails or succeed.
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ASYNC AND AWAIT
+  
+
+  // const promise1 = new Promise((resolve,reject)=> {
+  //   // resolve(["JS","PHP"]);
+  //   reject("API Failed");
+  // });
+
+
+  //promise
+
+  //  promise1.then(res=> {console.log(res);
+  //  }).catch(err=>{err})
+  
+  //async 
+// async function FetchData(){
+//   const Response = await promise1;
+//   console.log(Response);
+// };
+
+
+//  FetchData();
+ 
+//async in arrow function
+  
+  //  const FetchData =  async()=>{
+  //   const Response = await promise1;
+  //   console.log(Response);
+  //  };
+  //  FetchData();
+
+//   /////IIFE in arrow function  form
+// (async ()=>{
+//   const Response = await promise1;
+//   console.log(Response);
+// })();
+
+  ///IIFE IN NORMAL FUNCTION FORM
+
+// (async function noName() {
+//     const Response = await promise1;
+//     console.log(Response);
+// })();
+
+
+//without try catch method
+
+  // const FetchData = async()=>{
+  //   const Response = await promise1.catch(err=> {console.log(err);
+  //   }); 
+  //   if(Response){
+  //     console.log(Response);
+      
+  //   }
+  // };
+
+
+  // FetchData();
+  
+  ////with try catch
+
+
+  // async function FetchData(){
+  //   try{
+  //     const Response = await promise1;
+  //     console.log(Response);
+  //   }catch (err){
+  //     console.log(err);
+      
+  //   }
+  // }
+  // FetchData();
+  
+//   //eg by fake API 
+    
+// const  genericFetchData = async (url) =>{
+// try{
+//     const response = await fetch(url)
+//       const data = await response.json();
+//        return [data,null];
+//    }catch(error){
+//   return [null,error];}
+// } 
+//   const fetchAPIData = async()=>{
+
+   
+// const [data,error] = await genericFetchData('https://jsonplaceholder.typicode.com/todos/1');
+//    if(data){console.log(data);
+//     return;//without try catch block
+   
+// }};
+
+//   fetchAPIData();
+  
+  
+  
+  
+  
+   
+  
+  </script>
+</body>
+</html>

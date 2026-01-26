@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let originalValue = {
+            name: 'vuas',
+            age:33,
+            getName:function(){
+
+            },
+            address:{
+                city:"xyz",
+                country: "uvw"
+            }
+
+ 
+        };
+        // let copyiedValue = originalValue;
+    //  method one
+      let copyiedValue = {...originalValue}//one method to make a deep copy.this doesn't give you a complete deep copy, it gives a partialy deep copy.it cannot access the nested objects or array .we can acheive complete deep copy by writing code logically.
+copyiedValue  = {
+    ...copyiedValue,name:"vyas",
+    address:{
+        ...copyiedValue.address,city:"xexd"
+    }
+}
+
+      //method two  // let copyiedValue = JSON.parse(JSON.stringify(originalValue))//one method to make a deep copy.there is one disadvantages of this method ,it cannot access the function methods in the object
+    //   let copyiedValue = Object.assign({},originalValue);//one method to make a deep copy . this doesn't give you a complete deep copy, it gives a partialy deep copy.it cannot access the nested objects or array .
+      console.log(originalValue);
+        console.log(copyiedValue);
+        // copyiedValue.address.country ="xexe";
+        console.log(copyiedValue);
+        console.log(originalValue);
+ 
+    </script>
+</body>
+</html>

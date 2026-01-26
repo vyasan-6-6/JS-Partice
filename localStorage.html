@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+               <!-- static -->
+   <input type="text">
+    <button id="login">Login</button>
+    <button id="logout">Logout</button>
+
+        <!-- dynamic -->
+     
+    <h1>Please Login</h1>    
+
+    <script>
+        // localStorage.setItem("","");
+// localStorage.getItem("");
+// localStorage.removeItem("");
+// localStorage.key("");
+// localStorage.clear();
+
+
+
+
+// localStorage.setItem("id","0");
+// localStorage.setItem("token", "abc");
+// localStorage.setItem("name","debug");
+
+
+// localStorage.removeItem("id");
+
+// console.log(localStorage.key("1"));
+
+
+// document.write(localStorage.getItem("id"));
+// document.write(localStorage.getItem("name"));
+
+  // if we want to access more data inside  localStorage we use JSON stringFly and parsed
+
+
+//  const obj ={
+//     id: 34,
+//     name:"debug"
+//  } ;
+
+
+//    localStorage.setItem("data",JSON.stringify(obj));
+//    console.log(localStorage.getItem("data"));
+//    //if we want to make string back to obj use JSON.PARSE
+
+//    console.log(JSON.parse(localStorage.getItem("data")));
+   
+///////for the login and logout box
+
+  const input = document.querySelector("input");   
+  const loginBtn = document.querySelector("#login");   
+  const logoutBtn = document.querySelector("#logout");   
+ 
+   const h1= document.querySelector("h1");
+
+   loginBtn.onclick = ()=>{
+    if (input.value){
+        localStorage.setItem("token",input.value);
+        h1.innerHTML= "Welcome User";
+    }
+   };
+ if(localStorage.getItem("token")){   //by using this , when token is present ,when reloading the page it will not show "please login"
+    h1.innerHTML = "Welcome User";
+ }
+  
+   logoutBtn.onclick =()=>{
+    localStorage.clear();
+    location.reload();//to reload the current webpage again after logout.   
+};
+
+  
+
+
+    </script>
+</body>
+</html>

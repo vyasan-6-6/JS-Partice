@@ -1,0 +1,51 @@
+
+🔑 Important Points about IIFE
+Immediate Execution
+
+Runs as soon as it is defined, without needing to call it later.
+
+Scope Isolation
+
+Creates a private scope, preventing variable conflicts with other parts of code.
+
+Common Use Cases
+
+Avoid polluting the global namespace.
+
+Useful for module patterns before ES6 modules existed.
+
+Protect variables from being accessed outside.
+
+Two Main Forms
+
+Anonymous IIFE:
+
+js
+
+(function() { console.log("Hello"); })();
+
+Named IIFE (helps with debugging):
+js
+
+(function greet() { console.log("Hi"); })();
+
+Arrow Function IIFE
+js
+
+(() => {
+  console.log("Arrow IIFE");
+})();
+
+Can Accept Parameters
+js
+
+(function(name) {
+  console.log("Hello " + name);
+})("Vyas");
+Not Used Frequently Now
+
+Modern JS prefers block scope (let, const) and modules instead of IIFEs.
+
+✅ In short:
+IIFE = function executed immediately after creation → helps with scope isolation, avoiding global pollution, and private logic.
+

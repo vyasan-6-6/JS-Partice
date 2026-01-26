@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice_from_voice_note</title>
+</head>
+<body>
+    <script>
+// 1.CALLBACK FUNCTIONS
+
+    // function greet(name,callback){
+    //     console.log(`Hello ${name}`);
+    //     callback();
+    // }
+
+    // function aftergreeting(){
+    //     console.log("This runs after greeting.");
+
+    // }
+
+    // greet("vyasan",aftergreeting);
+
+
+//2. HIGHER ORDER FUNCTION
+      
+    //  function multiplayer(factor){
+    //     return function (number){    //i doesn't name the function because , a fn inside a fn can been written in this way ,also called anonymous fn.
+    //      return number*factor;
+    //     };
+    //  };
+
+    //  const Double = multiplayer(2);
+
+    //  console.log(Double(5));
+
+//EXAMPLE WITH AS ARGUMENT AND RETURING A FUNCTION
+    // function doMath(operation,x,y){
+    //     return operation(x,y);
+    // };
+
+    // function add(a,b){
+    //     return a+b;
+    // };
+
+    // // console.log(doMath(add,2,3));// we can do like this or 
+
+    // const result = doMath(add,2,3);
+    //  console.log(result);
+
+
+    // function fetchUserData(callback){
+    //             console.log("fetching the data.");
+
+    //             setTimeout(()=> {
+    //                 const data ={
+    //                     id:3, name:"vyasan",
+    //                     age:43
+    //                 }
+    //                 console.log("user data fetched ");
+    //                 callback(data);
+    //             },2000);
+    // };
+
+    // fetchUserData(function(user){
+    //     console.log("user name:", user.name);
+    //     console.log("Welcome :", user.name);
+    // });
+
+
+
+    //const numbers=[2,3,4,5,7,9,6];
+    //     // const doulbed = numbers.map(function(num){
+    //     //     return num*2;
+    //     // }
+    // );//coding in arrow fn method
+
+    // const doulbed= numbers.map(num=>num*2);
+    //     console.log(doulbed);
+
+//3.RECURSION
+
+      // function factorial(n){
+      //     if(n===1) return 1;  // base case
+      //     return n*factorial(n-1);//recurise case
+      // }
+
+      //     console.log(factorial(5));
+
+
+
+//4.PURE AND IMPURE FUNCTIONS
+
+    //    function add(a,b){
+    //     return a+b;
+    //    };
+    //    console.log(add(2,3));
+
+       //impure function
+    //      let count=0;
+    //    function increment(){
+    //     count++;
+    //    };
+
+    //    console.log(increment());
+
+
+//5.IIFE(IMMEDIATELY INVOKED FUNCTION EXPRESSION)
+
+    // const name="outside";
+    // function test(){                 //normal fn
+    //     const name ="inside";
+    //     console.log("inside fn",name);
+    // };
+
+    // test();
+    // console.log("outside",name);
+
+   
+    //IIFE  SYNTX
+
+    // const name="outside";
+    // (function(){
+    //     const name = "inside";
+    //     console.log("inside IIFE:",name);
+    // })();
+
+    // console.log("outside :",name);
+
+//6.MODULES (EXPORT AND IMPORT)   in utils.js and in main.js files 
+   
+
+
+
+//7.CALL APPLY BIND 
+
+  // using 'this' inside a object method 
+
+  //   const user={
+    //     name: "Alice",           //WITHOUT CALL APPLY BIND
+
+    //     greet(){
+    //         console.log(`Hello i am ${this.name}.`);
+    //     }
+    //   };
+
+    //   user.greet();
+
+
+
+    //   const user={name:"Alice"};
+
+    //   function greet(city){
+    //     console.log(`${this.name} from ${city}.`)
+    //   };
+
+    //   greet.call(user, "New  York");
+    //   greet.apply(user,["Paris"]);
+      
+    //   const bountGreet= greet.bind(user,"Tyoko");
+    //   bountGreet();
+     
+
+    // const person1={
+    //     name:"Alice",
+    //     greet: function(city){
+    //         console.log(`${this.name} from ${city}.`)
+    //     }
+    // };
+
+    // // person1.greet("dfsf");
+
+    // const person2={
+    //     name: "Bob"
+    // };
+
+    // person1.greet.call(person2,"Belgin");
+  
+    </script>
+</body>
+</html>
