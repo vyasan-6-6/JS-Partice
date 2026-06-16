@@ -523,19 +523,151 @@
 // console.log(nonRepeatingChar("leetcode"));
 
 
-function noRepeating(str){
-  let count ={};
-  for(let ch of str){
-    count[ch] = (count[ch] || 0)+1;
-  }
+// function noRepeating(str){
+//   let count ={};
+//   for(let ch of str){
+//     count[ch] = (count[ch] || 0)+1;
+//   }
 
-  for(let ch of str){
-    if(count[ch] === 1){
-      return ch;
-    }
-  }
-  return null;
-}
-console.log(noRepeating("swiss"));
+//   for(let ch of str){
+//     if(count[ch] === 1){
+//       return ch;
+//     }
+//   }
+//   return null;
+// }
+// console.log(noRepeating("swiss"));
+
 
             
+
+// const arr = [55,54,56,73,90,85];
+ 
+// arr.filter((a)=>{
+//     return a
+    
+// })
+
+
+// const person ={
+//     name:"vyasan",
+//     phone:342323,
+// }
+
+// console.log(person.phone);
+
+// console.log(Array.isArray([3,24,43,4]))
+// const date = new Date();
+// console.log(date instanceof Date
+// )
+
+// console.log(Object.prototype.toString.call(null));
+
+//   let num = "10";
+//   let n = 103;
+// console.log(parseInt(num))
+// console.log(n);
+// parseInt("399");
+// console.log(parseFloat("3"))
+
+
+//  function fetchData(){
+//     return new Promise((re,rej)=>{
+//         setTimeout(() => {
+//             re("setted");
+            
+//         }, 2000);
+//     })
+//  }
+
+//  fetchData().then(resu=>{console.log(resu);
+//  }).catch(er=>{console.error(er);
+//  })
+
+//  async function show(){
+//     const data = await fetchData();
+//     console.log(data);
+    
+//  }
+//  show();
+
+//  const arr=[1,2,3,4,5,6,7,8,9,10];
+// let re=[]
+//  for(let i =0;i<arr.length;i++){
+//     if(arr[i]%2==0){
+//         re.push(arr[i])
+//     }
+//  };
+
+//  console.log(re);
+ 
+//  const even = arr.filter((it)=>it%2==0)
+//  console.log(even);
+ 
+//  let whie =0
+//  while(arr.length>whie){
+// console.log(whie);
+// whie++;
+//  }
+  
+//  const person ={
+//     name:"vyas",
+//     age:38
+//  }
+//  person.home = "kunj"
+//  let key = "country";
+//  person[key] = "india"
+//  const persons = {
+//     ...person,
+//     love:"god"
+//  }
+
+//  console.log(person);
+ 
+//  const forEac = arr.forEach(function(it,inf){
+//     console.log(`${inf} : ${it}`)
+    
+//  }
+ 
+//  )
+ 
+//  arr.filter((i,index,array)=>{
+//     console.log(array);
+    
+//  });
+ 
+ 
+//  arr.map((i,ind,array)=>{
+//     console.log(ind);
+    
+//  });
+
+//  const findd = arr.find((i,ind,array)=>{
+//     console.log(i*i);
+//     return i+6
+//  })
+//  console.log("findd",findd);
+ 
+//  const mapp = arr.map((i,ind,arr)=>{
+//     return i*2
+//  });
+
+//  const ree = arr.reduce((acc,i)=>acc+=i,0)
+
+//  console.log(ree);
+ 
+//  const result = arr.flatMap(x=>x%2===0 ?[x]:[]);
+//  console.log(result);
+ 
+
+//  const arrr = [1,2,3,4,5];
+//  const array= [1,2,3,4,5];
+  
+//  arrr.splice(1,0,2,3);
+ 
+//  console.log("splice",arrr);
+ 
+//  const arrays = array.slice(1,3)
+
+//  console.log("array",arrays);
+ 
