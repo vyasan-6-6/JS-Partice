@@ -223,9 +223,99 @@
 // }
 
 // console.log(twoSum(arr, tar));
-const map = new Map([['/',1],['br',8]])
- for(const [key,value] of map){
-    console.log(`${key}:${value}`);
-    
- }
+// const map = new Map()
+// map.set(1,2)
+// map.set("sm",33)
+//  for(const [key,value] of map){
+//     console.log(`${key}:${value}`);
+
+//  }
+
+// const arr = [5, 5, 1, 2, 1, 2];
+// function firstNonRepeating(arr) {
+//     for (let i = 0; i < arr.length; i++) {
+//         let count = 0;
+
+//         for (let j = 0; j < arr.length; j++) {
+//             if (arr[i] === arr[j]) {
+//                 count++;
+//             }
+//         }
+
+//         if (count === 1) {
+//             return arr[i];
+//         }
+//     }
+
+//     return -1;
+// }
+// function firstNonRepeating(arr){
+//     let fre =new Map();
+//     for(const n of arr){
+//        fre.set(n,(fre.get(n) || 0)+1);
+//     }
+//     console.log(fre);
+//     for(const n of arr){
+//         if(fre[n]===1){
+//             return n
+//         }
+//     }
+//     return -1;
+
+// }
+// console.log(firstNonRepeating(arr))
+
+// let arr = [1,10000, 3, 5, 9, 8];
+
+// function bubbleSort(arr) {
+//     const n = arr.length;
+//     for (let i = 0; i < n - 1; i++) {
+//         for (let j = 0; j < n - 1 - i; j++) {
+//             if (arr[j] > arr[j + 1]) {
+//         let temp = arr[j];
+//         arr[j] = arr[j+1] ; 
+//          arr[j+1]  = temp;
+//             }
+//         }
+//     }
+//     return arr;
+// }
+
+// console.log(bubbleSort(arr));
+
+// let arr = [1,10000, 3, 5, 9, 8];
+
+// function bubbleSort(arr) {
+//     const n = arr.length;
+//     for (let i = 0; i < n - 1; i++) {
+//         for (let j = 0; j < n - 1 - i; j++) {
+//             if (arr[j] > arr[j + 1]) {
  
+//         [arr[j],arr[j+1]] = [arr[j+1],arr[j]]   
+       
+//             }
+//         }
+//     }
+//     return arr;
+// }
+
+// console.log(bubbleSort(arr));
+
+// let arr = [1,10000, 3, 5, 9, 8];
+
+// function bubbleSortReverse(arr) {
+//     const n = arr.length;
+//     for (let i = n - 1; i > 0 ; i--) {
+//         for (let j =  n - 1 - i; j > 0; j--) {
+//             if (arr[j] > arr[j - 1]) {
+ 
+//         [arr[j],arr[j-1]] = [arr[j-1],arr[j]]   
+       
+//             }
+//         }
+//     }
+//     return arr;
+// }
+
+// console.log(bubbleSortReverse(arr));
+
