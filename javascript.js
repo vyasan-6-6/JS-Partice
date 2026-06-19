@@ -273,7 +273,7 @@
 //         for (let j = 0; j < n - 1 - i; j++) {
 //             if (arr[j] > arr[j + 1]) {
 //         let temp = arr[j];
-//         arr[j] = arr[j+1] ; 
+//         arr[j] = arr[j+1] ;
 //          arr[j+1]  = temp;
 //             }
 //         }
@@ -287,73 +287,84 @@
 // let arr = [1,10000, 3, 5, 9, 8];
 
 // function bubbleSort(arr) {
-    //     const n = arr.length;
-    //     for (let i = 0; i < n - 1; i++) {
-        //         for (let j = 0; j < n - 1 - i; j++) {
-            //             if (arr[j] > arr[j + 1]) {
-                
-            //         [arr[j],arr[j+1]] = [arr[j+1],arr[j]]   
-            
-            //             }
-            //         }
-            //     }
-            //     return arr;
-            // }
-            
-            // console.log(bubbleSort(arr));
-            
-            // let arr = [1,10000, 3, 5, 9, 8];
-            
-            // function bubbleSortReverse(arr) {
-                //     const n = arr.length;
-                //     for (let i = n - 1; i > 0 ; i--) {
-                    //         for (let j =  n - 1 - i; j > 0; j--) {
-                        //             if (arr[j] > arr[j - 1]) {
-                            
-                        //         [arr[j],arr[j-1]] = [arr[j-1],arr[j]]   
-                        
-                        //             }
-                        //         }
-                        //     }
+//     const n = arr.length;
+//     for (let i = 0; i < n - 1; i++) {
+//         for (let j = 0; j < n - 1 - i; j++) {
+//             if (arr[j] > arr[j + 1]) {
+
+//         [arr[j],arr[j+1]] = [arr[j+1],arr[j]]
+
+//             }
+//         }
+//     }
+//     return arr;
+// }
+
+// console.log(bubbleSort(arr));
+
+// let arr = [1,10000, 3, 5, 9, 8];
+
+// function bubbleSortReverse(arr) {
+//     const n = arr.length;
+//     for (let i = n - 1; i > 0 ; i--) {
+//         for (let j =  n - 1 - i; j > 0; j--) {
+//             if (arr[j] > arr[j - 1]) {
+
+//         [arr[j],arr[j-1]] = [arr[j-1],arr[j]]
+
+//             }
+//         }
+//     }
 //     return arr;
 // }
 
 // console.log(bubbleSortReverse(arr));
 
 // function sortAscending(arr) {
-    //   for (let i = 0; i < arr.length; i++) {
-        //     for (let j = i + 1; j < arr.length; j++) {
-            //       if (arr[i] > arr[j]) {
-                //         [arr[i], arr[j]] = [arr[j], arr[i]];
-                //       }
-                //     }
-                //   }
-                
-                //   return arr;
-                // }
-                
-                // console.log(sortAscending([1,4,3,5,2]));
-                
-                // ------------insertion sort------------
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[i] > arr[j]) {
+//         [arr[i], arr[j]] = [arr[j], arr[i]];
+//       }
+//     }
+//   }
 
+//   return arr;
+// }
 
-                function insertionSort(arr) {
-    let n = arr.length;
+// console.log(sortAscending([1,4,3,5,2]));
 
-    for (let i = 1; i < n; i++) {
+// ------------insertion sort------------
 
-        let current = arr[i];
-        let j = i - 1;
+//                 function insertionSort(arr) {
+//     let n = arr.length;
 
-        while (j >= 0 && arr[j] > current) {
-            arr[j + 1] = arr[j];
-            j--;
-        }
+//     for (let i = 1; i < n; i++) {
 
-        arr[j + 1] = current;
+//         let current = arr[i];
+//         let j = i - 1;
+
+//         while (j >= 0 && arr[j] > current) {
+//             arr[j + 1] = arr[j];
+//             j--;
+//         }
+
+//         arr[j + 1] = current;
+//     }
+
+//     return arr;
+// }
+
+// console.log(insertionSort([5, 3, 4, 1]));
+
+// ------------Linear Search------------
+
+function linearSearch(arr,tar) {
+for(let i = 0 ; i < arr.length ; i++){
+    if(arr[i]===tar){
+    return i;
     }
-
-    return arr;
 }
-
-console.log(insertionSort([5, 3, 4, 1]));
+return -1
+}
+console.log(linearSearch([4,8,2,7,5,9],7));
