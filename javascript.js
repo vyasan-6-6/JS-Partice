@@ -370,20 +370,35 @@
 // console.log(linearSearch([4,8,2,7,5,9],7));
 
 // ------------binarySearch  ------------
-function binarySearch(arr, tar) {
-    let left   = 0;
-    let right = arr.length - 1;
-    while(left   <= right) {
-        let mid = Math.floor((left+right)/2);
-        if(arr[mid]===tar){
-            return mid;
-        }
-        if(tar<arr[mid]){
-            right= mid - 1;
-        }else{
-            left = mid + 1;
+// function binarySearch(arr, tar) {
+//     let left   = 0;
+//     let right = arr.length - 1;
+//     while(left   <= right) {
+//         let mid = Math.floor((left+right)/2);
+//         if(arr[mid]===tar){
+//             return mid;
+//         }
+//         if(tar<arr[mid]){
+//             right= mid - 1;
+//         }else{
+//             left = mid + 1;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(binarySearch([1, 3, 5, 7, 9, 11],7));
+//--------- Find the sum of all even numbers and the count of all odd numbers in an array.---------
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function eo(arr) {
+    let evenSum = 0;
+    let oddCount = 0;
+    for (const n of arr) {
+        if (n % 2 === 0) {
+            evenSum += n;
+        } else if (n % 2 !== 0) {
+            oddCount++;
         }
     }
-    return -1;
+    return `evenSum : ${evenSum} and oddCount : ${oddCount}`;
 }
-console.log(binarySearch([1, 3, 5, 7, 9, 11],7));
+console.log(eo(arr));
