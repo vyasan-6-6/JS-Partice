@@ -423,7 +423,7 @@
 //         return this.items.length;
 //     }
 //     peek() {
-//         if(!this.isEmpty){
+//         if(!this.isEmpty()){
 //             return this.items[0]
 //         }
 // return null;
@@ -448,35 +448,74 @@
 
 //---------Queue Implementation using fn-------------
 
-function createQueue() {
-    let items = [];
-    return {
-        enqueue(element) {
-            items.push(element);
-        },
-        dequeue() {
-            return items.shift();
-        },
-        isEmpty() {
-            return items.length === 0;
-        },
-        size() {
-            return items.length;
-        },
-        peek() {
-            if (!isEmpty) {
-                return items[0];
-            }
-            return null;
-        },
-        print() {
-            console.log(items.toString());
-        },
-    };
+// function createQueue() {
+//     let items = [];
+//     return {
+//         enqueue(element) {
+//             items.push(element);
+//         },
+//         dequeue() {
+//             return items.shift();
+//         },
+//         isEmpty() {
+//             return items.length === 0;
+//         },
+//         size() {
+//             return items.length;
+//         },
+//         peek() {
+//             if (!isEmpty()) {
+//                 return items[0];
+//             }
+//             return null;
+
+//         },
+//         print() {
+//             console.log(items.toString());
+//         },
+//     };
+// }
+
+// const q = createQueue();
+// console.log(q.isEmpty());
+
+// q.enqueue(10);
+// q.print()
+
+//---------Stack Implementation using class-------------
+
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+    push(element) {
+        this.items.push(element);
+    }
+    isEmpty() {
+        return this.items.length === 0;
+    }
+    pop() {
+         if (this.isEmpty()) {
+            return "Stack Underflow";
+        }
+        return this.items.pop();
+    }
+    peek() {
+        if (!this.isEmpty()) {
+            return this.items[this.items.length - 1];
+        }
+        return null;
+    }
+    size(){
+        return this.items.length;
+    }
+    print() {
+        console.log(this.items);
+    }
 }
-
-const q = createQueue();
-console.log(q.isEmpty());
-
-q.enqueue(10);
-q.print()
+const s = new Stack();
+ 
+s.pop()
+console.log(s.isEmpty());
+console.log(s.size()); 
+s.print()
