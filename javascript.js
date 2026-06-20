@@ -388,17 +388,60 @@
 // }
 // console.log(binarySearch([1, 3, 5, 7, 9, 11],7));
 //--------- Find the sum of all even numbers and the count of all odd numbers in an array.---------
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-function eo(arr) {
-    let evenSum = 0;
-    let oddCount = 0;
-    for (const n of arr) {
-        if (n % 2 === 0) {
-            evenSum += n;
-        } else if (n % 2 !== 0) {
-            oddCount++;
-        }
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// function eo(arr) {
+//     let evenSum = 0;
+//     let oddCount = 0;
+//     for (const n of arr) {
+//         if (n % 2 === 0) {
+//             evenSum += n;
+//         } else if (n % 2 !== 0) {
+//             oddCount++;
+//         }
+//     }
+//     return `evenSum : ${evenSum} and oddCount : ${oddCount}`;
+// }
+// console.log(eo(arr));
+
+//---------Queue Implementation-------------
+
+class Queue{
+    constructor(){
+        this.items= [];
     }
-    return `evenSum : ${evenSum} and oddCount : ${oddCount}`;
+
+    enqueue(element){
+        this.items.push(element)
+    }
+    dequeue(){
+        return this.items.shift()
+    }
+    isEmpty(){
+        return this.items.length === 0
+    }
+    size(){
+        return this.items.length;
+    }
+    peek() {
+        if(!this.isEmpty){
+            return this.items[0]
+        }
+return null;
+    }
+    print(){
+        console.log(this.items.toString());
+        
+    }
+
 }
-console.log(eo(arr));
+const q = new Queue();
+q.enqueue(10)
+q.enqueue(15)
+q.enqueue(14)
+q.enqueue(12)
+q.enqueue(11)
+q.dequeue()
+console.log(q.isEmpty())
+console.log(q.peek())
+console.log(q.size())
+q.print()
