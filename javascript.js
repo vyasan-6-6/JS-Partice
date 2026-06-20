@@ -484,38 +484,77 @@
 
 //---------Stack Implementation using class-------------
 
-class Stack {
-    constructor() {
-        this.items = [];
-    }
-    push(element) {
-        this.items.push(element);
-    }
-    isEmpty() {
-        return this.items.length === 0;
-    }
-    pop() {
-         if (this.isEmpty()) {
-            return "Stack Underflow";
-        }
-        return this.items.pop();
-    }
-    peek() {
-        if (!this.isEmpty()) {
-            return this.items[this.items.length - 1];
-        }
-        return null;
-    }
-    size(){
-        return this.items.length;
-    }
-    print() {
-        console.log(this.items);
-    }
-}
-const s = new Stack();
+// class Stack {
+//     constructor() {
+//         this.items = [];
+//     }
+//     push(element) {
+//         this.items.push(element);
+//     }
+//     isEmpty() {
+//         return this.items.length === 0;
+//     }
+//     pop() {
+//          if (this.isEmpty()) {
+//             return "Stack Underflow";
+//         }
+//         return this.items.pop();
+//     }
+//     peek() {
+//         if (!this.isEmpty()) {
+//             return this.items[this.items.length - 1];
+//         }
+//         return null;
+//     }
+//     size(){
+//         return this.items.length;
+//     }
+//     print() {
+//         console.log(this.items);
+//     }
+// }
+// const s = new Stack();
  
-s.pop()
-console.log(s.isEmpty());
-console.log(s.size()); 
-s.print()
+// s.pop()
+// console.log(s.isEmpty());
+// console.log(s.size()); 
+// s.print()
+
+
+//---------Stack Implementation using fn-------------
+
+function createStack() {
+    let items = [];
+    return {
+        push(element) {
+            items.push(element);
+        },
+        isEmpty() {
+            return items.length === 0;
+        },
+        pop() {
+            if (this.isEmpty()) {
+                return "Stack Underflow";
+            }
+            return items.pop();
+        },
+        peek() {
+            if (!this.isEmpty()) {
+                return items[items.length - 1];
+            }
+            return null;
+        },
+        size(){
+            return items.length;
+        },
+        print() {
+            console.log(items);
+        }
+    };
+}
+
+const q = createStack();
+console.log(q.isEmpty());
+
+q.push(10);
+q.print()
