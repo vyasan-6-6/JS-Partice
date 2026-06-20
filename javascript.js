@@ -405,43 +405,78 @@
 
 //---------Queue Implementation-------------
 
-class Queue{
-    constructor(){
-        this.items= [];
-    }
+// class Queue{
+//     constructor(){
+//         this.items= [];
+//     }
 
-    enqueue(element){
-        this.items.push(element)
-    }
-    dequeue(){
-        return this.items.shift()
-    }
-    isEmpty(){
-        return this.items.length === 0
-    }
-    size(){
-        return this.items.length;
-    }
-    peek() {
-        if(!this.isEmpty){
-            return this.items[0]
-        }
-return null;
-    }
-    print(){
-        console.log(this.items.toString());
-        
-    }
+//     enqueue(element){
+//         this.items.push(element)
+//     }
+//     dequeue(){
+//         return this.items.shift()
+//     }
+//     isEmpty(){
+//         return this.items.length === 0
+//     }
+//     size(){
+//         return this.items.length;
+//     }
+//     peek() {
+//         if(!this.isEmpty){
+//             return this.items[0]
+//         }
+// return null;
+//     }
+//     print(){
+//         console.log(this.items.toString());
 
+//     }
+
+// }
+// const q = new Queue();
+// q.enqueue(10)
+// q.enqueue(15)
+// q.enqueue(14)
+// q.enqueue(12)
+// q.enqueue(11)
+// q.dequeue()
+// console.log(q.isEmpty())
+// console.log(q.peek())
+// console.log(q.size())
+// q.print()
+
+//---------Queue Implementation using fn-------------
+
+function createQueue() {
+    let items = [];
+    return {
+        enqueue(element) {
+            items.push(element);
+        },
+        dequeue() {
+            return items.shift();
+        },
+        isEmpty() {
+            return items.length === 0;
+        },
+        size() {
+            return items.length;
+        },
+        peek() {
+            if (!isEmpty) {
+                return items[0];
+            }
+            return null;
+        },
+        print() {
+            console.log(items.toString());
+        },
+    };
 }
-const q = new Queue();
-q.enqueue(10)
-q.enqueue(15)
-q.enqueue(14)
-q.enqueue(12)
-q.enqueue(11)
-q.dequeue()
-console.log(q.isEmpty())
-console.log(q.peek())
-console.log(q.size())
+
+const q = createQueue();
+console.log(q.isEmpty());
+
+q.enqueue(10);
 q.print()
