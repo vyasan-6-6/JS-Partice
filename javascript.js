@@ -514,47 +514,104 @@
 //     }
 // }
 // const s = new Stack();
- 
+
 // s.pop()
 // console.log(s.isEmpty());
-// console.log(s.size()); 
+// console.log(s.size());
 // s.print()
-
 
 //---------Stack Implementation using fn-------------
 
-function createStack() {
-    let items = [];
-    return {
-        push(element) {
-            items.push(element);
-        },
-        isEmpty() {
-            return items.length === 0;
-        },
-        pop() {
-            if (this.isEmpty()) {
-                return "Stack Underflow";
-            }
-            return items.pop();
-        },
-        peek() {
-            if (!this.isEmpty()) {
-                return items[items.length - 1];
-            }
-            return null;
-        },
-        size(){
-            return items.length;
-        },
-        print() {
-            console.log(items);
-        }
-    };
+// function createStack() {
+//     let items = [];
+//     return {
+//         push(element) {
+//             items.push(element);
+//         },
+//         isEmpty() {
+//             return items.length === 0;
+//         },
+//         pop() {
+//             if (this.isEmpty()) {
+//                 return "Stack Underflow";
+//             }
+//             return items.pop();
+//         },
+//         peek() {
+//             if (!this.isEmpty()) {
+//                 return items[items.length - 1];
+//             }
+//             return null;
+//         },
+//         size(){
+//             return items.length;
+//         },
+//         print() {
+//             console.log(items);
+//         }
+//     };
+// }
+
+// const q = createStack();
+// console.log(q.isEmpty());
+
+// q.push(10);
+// q.print()
+
+//--------------Node-----------
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
 }
 
-const q = createStack();
-console.log(q.isEmpty());
+class LinkedList {
+    constructor() {
+        this.head = null;
+    }
 
-q.push(10);
-q.print()
+    insertAtBeginning(value) {
+        const node = new Node(value);
+
+        node.next = this.head;
+        this.head = node;
+    }
+
+    insertAtEnd(value) {
+        const node = new Node(value);
+
+        if (!this.head) {
+            this.head = node;
+            return;
+        }
+
+        let current = this.head;
+
+        while (current.next) {
+            current = current.next;
+        }
+
+        current.next = node;
+    }
+
+    print() {
+        let current = this.head;
+        let result = "";
+
+        while (current) {
+            result += current.value + " -> ";
+            current = current.next;
+        }
+
+        console.log(result + "null");
+    }
+}
+const l =    new LinkedList();
+l.insertAtEnd(8);
+ l.insertAtBeginning(1)
+ l.print()
+ 
+ 
+ 
