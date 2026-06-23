@@ -684,21 +684,36 @@
 
 //-------powerof two----------
 
-function isPowerOfTwo(n){
-    if(n<1){
-        return false;
-    }
-    while(n>1){
-        if(n%2!==0){
-            return false;
-        }
-        n/=n;
-    }
-    return true;
+// function isPowerOfTwo(n){// O(log n ) , because of inputsize is halfed
+//     if(n<1){
+//         return false;
+//     }
+//     while(n>1){
+//         if(n%2!==0){
+//             return false;
+//         }
+//         n/=n;
+//     }
+//     return true;
+// }
+// console.log(isPowerOfTwo(0));
+// console.log(isPowerOfTwo(2));
+// console.log(isPowerOfTwo(1));
+// console.log(isPowerOfTwo(4));
+// console.log(isPowerOfTwo(5));
+// console.log(isPowerOfTwo(7));
+
+
+function isPowerOfTwoBitiwise(n){// O(1) , because of inputsize is halfed
+    if(n<1)   return false;
+    
+   
+    return (n & (n-1)) === 0  ;
 }
-console.log(isPowerOfTwo(0));
-console.log(isPowerOfTwo(2));
-console.log(isPowerOfTwo(1));
-console.log(isPowerOfTwo(4));
-console.log(isPowerOfTwo(5));
-console.log(isPowerOfTwo(7));
+console.log(isPowerOfTwoBitiwise(0));
+console.log(isPowerOfTwoBitiwise(2));
+console.log(isPowerOfTwoBitiwise(1));
+console.log(isPowerOfTwoBitiwise(4));
+console.log(isPowerOfTwoBitiwise(5));
+console.log(isPowerOfTwoBitiwise(7));
+
