@@ -612,22 +612,39 @@
 // l.insertAtEnd(8);
 //  l.insertAtBeginning(1)
 //  l.print()
- 
+
 //----fibonacci sequence---
 
-function fibonacci(n){   
-    const fib=[0,1];
-    for(let i=2;i<n;i++){
-     fib[i] = fib[i-2]+fib[i-1]  
+// function fibonacci(n){
+//     if(n===0)return [0];
+//     if(n===1)return [1];
+
+//     const fib=[0,1];
+//     for(let i=2;i<n;i++){
+//      fib[i] = fib[i-2]+fib[i-1]
+//     }
+//     return fib;
+// }
+
+// console.log(fibonacci(0));
+// console.log(fibonacci(1));
+// console.log(fibonacci(2));
+// console.log(fibonacci(3));
+// console.log(fibonacci(4));
+// console.log(fibonacci(5));
+// console.log(fibonacci(7));
+
+//----factorial-----
+function factorial(n) {
+    let res = 1;
+    for (let i = 2; i <= n; i++) {
+        res *= i;
     }
-    return fib;
+    return res;
 }
 
-console.log(fibonacci(2));
-console.log(fibonacci(3));
-console.log(fibonacci(4));
-console.log(fibonacci(5));
-console.log(fibonacci(7));
-
- 
- 
+console.log(factorial(0));
+console.log(factorial(1));
+console.log(factorial(4));
+console.log(factorial(5));
+console.log(factorial(7));
