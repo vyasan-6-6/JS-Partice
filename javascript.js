@@ -704,16 +704,51 @@
 // console.log(isPowerOfTwo(7));
 
 
-function isPowerOfTwoBitiwise(n){// O(1) , because of inputsize is halfed
-    if(n<1)   return false;
+// function isPowerOfTwoBitiwise(n){// O(1) , because of inputsize is halfed
+//     if(n<1)   return false;
     
    
-    return (n & (n-1)) === 0  ;
-}
-console.log(isPowerOfTwoBitiwise(0));
-console.log(isPowerOfTwoBitiwise(2));
-console.log(isPowerOfTwoBitiwise(1));
-console.log(isPowerOfTwoBitiwise(4));
-console.log(isPowerOfTwoBitiwise(5));
-console.log(isPowerOfTwoBitiwise(7));
+//     return (n & (n-1)) === 0  ;
+// }
+// console.log(isPowerOfTwoBitiwise(0));
+// console.log(isPowerOfTwoBitiwise(2));
+// console.log(isPowerOfTwoBitiwise(1));
+// console.log(isPowerOfTwoBitiwise(4));
+// console.log(isPowerOfTwoBitiwise(5));
+// console.log(isPowerOfTwoBitiwise(7));
 
+
+class Queue {
+    constructor(){
+        this.items=[];
+    }
+    enqueue(e){
+        this.items.push(e)
+    }
+    dequeue(){
+        return this.items.shift();
+    }
+    peek(){
+        if(this.isEmpty()){
+            return null;
+        }
+        return this.items[0];
+    }
+    size(){
+        return this.items.length;
+    }
+    isEmpty(){
+        return this.items.length===0;
+    }
+}
+
+const scheduler = new Queue();
+
+scheduler.enqueue("Send Email");
+scheduler.enqueue("Generate Report");
+scheduler.enqueue("Backup Database");
+
+while (!scheduler.isEmpty()) {
+    const currentTask = scheduler.dequeue()
+    console.log("Processing:", currentTask);
+}
