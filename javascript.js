@@ -560,58 +560,74 @@
 
 //--------------Node-----------
 
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
 
-class LinkedList {
-    constructor() {
-        this.head = null;
-    }
+// class LinkedList {
+//     constructor() {
+//         this.head = null;
+//     }
 
-    insertAtBeginning(value) {
-        const node = new Node(value);
+//     insertAtBeginning(value) {
+//         const node = new Node(value);
 
-        node.next = this.head;
-        this.head = node;
-    }
+//         node.next = this.head;
+//         this.head = node;
+//     }
 
-    insertAtEnd(value) {
-        const node = new Node(value);
+//     insertAtEnd(value) {
+//         const node = new Node(value);
 
-        if (!this.head) {
-            this.head = node;
-            return;
-        }
+//         if (!this.head) {
+//             this.head = node;
+//             return;
+//         }
 
-        let current = this.head;
+//         let current = this.head;
 
-        while (current.next) {
-            current = current.next;
-        }
+//         while (current.next) {
+//             current = current.next;
+//         }
 
-        current.next = node;
-    }
+//         current.next = node;
+//     }
 
-    print() {
-        let current = this.head;
-        let result = "";
+//     print() {
+//         let current = this.head;
+//         let result = "";
 
-        while (current) {
-            result += current.value + " -> ";
-            current = current.next;
-        }
+//         while (current) {
+//             result += current.value + " -> ";
+//             current = current.next;
+//         }
 
-        console.log(result + "null");
-    }
-}
-const l =    new LinkedList();
-l.insertAtEnd(8);
- l.insertAtBeginning(1)
- l.print()
+//         console.log(result + "null");
+//     }
+// }
+// const l =    new LinkedList();
+// l.insertAtEnd(8);
+//  l.insertAtBeginning(1)
+//  l.print()
  
+//----fibonacci sequence---
+
+function fibonacci(n){   
+    const fib=[0,1];
+    for(let i=2;i<n;i++){
+     fib[i] = fib[i-2]+fib[i-1]  
+    }
+    return fib;
+}
+
+console.log(fibonacci(2));
+console.log(fibonacci(3));
+console.log(fibonacci(4));
+console.log(fibonacci(5));
+console.log(fibonacci(7));
+
  
  
