@@ -718,37 +718,49 @@
 // console.log(isPowerOfTwoBitiwise(7));
 
 
-class Queue {
-    constructor(){
-        this.items=[];
+// class Queue {
+//     constructor(){
+//         this.items=[];
+//     }
+//     enqueue(e){
+//         this.items.push(e)
+//     }
+//     dequeue(){
+//         return this.items.shift();
+//     }
+//     peek(){
+//         if(this.isEmpty()){
+//             return null;
+//         }
+//         return this.items[0];
+//     }
+//     size(){
+//         return this.items.length;
+//     }
+//     isEmpty(){
+//         return this.items.length===0;
+//     }
+// }
+
+// const scheduler = new Queue();
+
+// scheduler.enqueue("Send Email");
+// scheduler.enqueue("Generate Report");
+// scheduler.enqueue("Backup Database");
+
+// while (!scheduler.isEmpty()) {
+//     const currentTask = scheduler.dequeue()
+//     console.log("Processing:", currentTask);
+// }
+
+//---------recursive fibonacci sequence-------
+
+function fibonacci(n){
+    if(n < 2){
+        return n;
     }
-    enqueue(e){
-        this.items.push(e)
-    }
-    dequeue(){
-        return this.items.shift();
-    }
-    peek(){
-        if(this.isEmpty()){
-            return null;
-        }
-        return this.items[0];
-    }
-    size(){
-        return this.items.length;
-    }
-    isEmpty(){
-        return this.items.length===0;
-    }
+    return fibonacci(n-1)+fibonacci(n-2)
 }
-
-const scheduler = new Queue();
-
-scheduler.enqueue("Send Email");
-scheduler.enqueue("Generate Report");
-scheduler.enqueue("Backup Database");
-
-while (!scheduler.isEmpty()) {
-    const currentTask = scheduler.dequeue()
-    console.log("Processing:", currentTask);
-}
+console.log(fibonacci(0));
+console.log(fibonacci(6));
+console.log(fibonacci(7));
