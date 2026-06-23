@@ -703,11 +703,9 @@
 // console.log(isPowerOfTwo(5));
 // console.log(isPowerOfTwo(7));
 
-
 // function isPowerOfTwoBitiwise(n){// O(1) , because of inputsize is halfed
 //     if(n<1)   return false;
-    
-   
+
 //     return (n & (n-1)) === 0  ;
 // }
 // console.log(isPowerOfTwoBitiwise(0));
@@ -716,7 +714,6 @@
 // console.log(isPowerOfTwoBitiwise(4));
 // console.log(isPowerOfTwoBitiwise(5));
 // console.log(isPowerOfTwoBitiwise(7));
-
 
 // class Queue {
 //     constructor(){
@@ -755,12 +752,22 @@
 
 //---------recursive fibonacci sequence-------
 
-function fibonacci(n){
-    if(n < 2){
-        return n;
-    }
-    return fibonacci(n-1)+fibonacci(n-2)
+// function fibonacci(n){ //O(n^2)
+//     if(n < 2){
+//         return n;
+//     }
+//     return fibonacci(n-1)+fibonacci(n-2)
+// }
+// console.log(fibonacci(0));
+// console.log(fibonacci(6));
+// console.log(fibonacci(7));
+
+//---- recursive factorial-----
+
+function recursiveFactorial(n){
+    if(n===0){return 1  }
+     return n * recursiveFactorial(n-1)
 }
-console.log(fibonacci(0));
-console.log(fibonacci(6));
-console.log(fibonacci(7));
+console.log(recursiveFactorial(1));
+console.log(recursiveFactorial(0));
+console.log(recursiveFactorial(5));
