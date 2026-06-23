@@ -635,16 +635,33 @@
 // console.log(fibonacci(7));
 
 //----factorial-----
-function factorial(n) {
-    let res = 1;
-    for (let i = 2; i <= n; i++) {
-        res *= i;
-    }
-    return res;
-}
+// function factorial(n) {
+//     let res = 1;
+//     for (let i = 2; i <= n; i++) {
+//         res *= i;
+//     }
+//     return res;
+// }
 
-console.log(factorial(0));
-console.log(factorial(1));
-console.log(factorial(4));
-console.log(factorial(5));
-console.log(factorial(7));
+// console.log(factorial(0));
+// console.log(factorial(1));
+// console.log(factorial(4));
+// console.log(factorial(5));
+// console.log(factorial(7));
+
+//----prime number-----
+
+function isPrime(n){
+    if(n<2) return false;
+    for(let i =2;i < n;i++){
+        if(n%i===0){
+            return false;
+        }
+    }
+    return true;
+}
+console.log(isPrime(0));
+console.log(isPrime(1));
+console.log(isPrime(4));
+console.log(isPrime(5));
+console.log(isPrime(7));
