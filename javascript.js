@@ -772,14 +772,35 @@
 // console.log(recursiveFactorial(0));
 // console.log(recursiveFactorial(5));
 
-const arr = [1,8,20,10,7,9];
-function linearSearch(arr,tar){
-    if(arr.length===0) return 0;
-    for(let i = 0 ; i < arr.length ; i++){
-        if(arr[i]===tar){
-            return i;
-        } 
-    }
-    return -1;
+// const arr = [1,8,20,10,7,9];
+// function linearSearch(arr,tar){
+//     if(arr.length===0) return 0;
+//     for(let i = 0 ; i < arr.length ; i++){
+//         if(arr[i]===tar){
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+// console.log(linearSearch(arr,89));
+
+const arr = [1, 9, 13, 20, 30, 50, 51, 59];
+
+function recursiveBinarySearch(arr,tar){
+return search(arr,tar,0,arr.length-1);
 }
-console.log(linearSearch(arr,89));
+function search(arr,tar,left,right){
+    if(left>right) {return -1;}
+    let mid = Math.floor((left+right)/2);
+    if(tar===arr[mid]){
+        return mid;
+    }
+    if(tar<arr[mid]){
+        return search(arr,tar,0,mid-1);
+    }else{
+        return search(arr,tar,mid+1,right);
+
+    }
+}
+console.log(recursiveBinarySearch(arr,50));
+
