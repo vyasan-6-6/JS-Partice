@@ -752,7 +752,7 @@
 
 //---------recursive fibonacci sequence-------
 
-// function fibonacci(n){ //O(n^2)
+// function fibonacci(n){ //O(2^n)
 //     if(n < 2){
 //         return n;
 //     }
@@ -764,10 +764,22 @@
 
 //---- recursive factorial-----
 
-function recursiveFactorial(n){
-    if(n===0){return 1  }
-     return n * recursiveFactorial(n-1)
+// function recursiveFactorial(n){//O(n)
+//     if(n===0){return 1  }
+//      return n * recursiveFactorial(n-1)
+// }
+// console.log(recursiveFactorial(1));
+// console.log(recursiveFactorial(0));
+// console.log(recursiveFactorial(5));
+
+const arr = [1,8,20,10,7,9];
+function linearSearch(arr,tar){
+    if(arr.length===0) return 0;
+    for(let i = 0 ; i < arr.length ; i++){
+        if(arr[i]===tar){
+            return i;
+        } 
+    }
+    return -1;
 }
-console.log(recursiveFactorial(1));
-console.log(recursiveFactorial(0));
-console.log(recursiveFactorial(5));
+console.log(linearSearch(arr,89));
