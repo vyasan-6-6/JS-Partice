@@ -784,23 +784,38 @@
 // }
 // console.log(linearSearch(arr,89));
 
-const arr = [1, 9, 13, 20, 30, 50, 51, 59];
+// function recursiveBinarySearch(arr,tar){//O(log n )
+// return search(arr,tar,0,arr.length-1);
+// }
+// function search(arr,tar,left,right){
+//     if(left>right) {return -1;}
+//     let mid = Math.floor((left+right)/2);
+//     if(tar===arr[mid]){
+//         return mid;
+//     }
+//     if(tar<arr[mid]){
+//         return search(arr,tar,0,mid-1);
+//     }else{
+//         return search(arr,tar,mid+1,right);
 
-function recursiveBinarySearch(arr,tar){
-return search(arr,tar,0,arr.length-1);
+//     }
+// }
+// console.log(recursiveBinarySearch(arr,50));
+
+const arr = [1,9,8,0,38,19,928,198,-183,-2];
+function bubbleSort(arr) {
+    let swapped;
+    do {
+        swapped = false;
+        for (let i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                swapped = true;
+            }
+        }
+    } while (swapped);
+    return arr;
 }
-function search(arr,tar,left,right){
-    if(left>right) {return -1;}
-    let mid = Math.floor((left+right)/2);
-    if(tar===arr[mid]){
-        return mid;
-    }
-    if(tar<arr[mid]){
-        return search(arr,tar,0,mid-1);
-    }else{
-        return search(arr,tar,mid+1,right);
-
-    }
-}
-console.log(recursiveBinarySearch(arr,50));
-
+console.log(bubbleSort(arr));
