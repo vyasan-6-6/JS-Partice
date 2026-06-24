@@ -802,20 +802,36 @@
 // }
 // console.log(recursiveBinarySearch(arr,50));
 
-const arr = [1,9,8,0,38,19,928,198,-183,-2];
-function bubbleSort(arr) {
-    let swapped;
-    do {
-        swapped = false;
-        for (let i = 0; i < arr.length - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                let temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-                swapped = true;
-            }
-        }
-    } while (swapped);
-    return arr;
+// const arr = [1,9,8,0,38,19,928,198,-183,-2];
+// function bubbleSort(arr) {//O(n^2)
+//     let swapped;
+//     do {
+//         swapped = false;
+//         for (let i = 0; i < arr.length - 1; i++) {
+//             if (arr[i] > arr[i + 1]) {
+//                 let temp = arr[i];
+//                 arr[i] = arr[i + 1];
+//                 arr[i + 1] = temp;
+//                 swapped = true;
+//             }
+//         }
+//     } while (swapped);
+//     return arr;
+// }
+// console.log(bubbleSort(arr));
+
+const arr = [4,3,2,1];
+function insertionSort(arr){
+for(let i = 1 ; i < arr.length ; i++){
+    let current = arr[i];
+    let j = i-1;
+    while(j>=0 && arr[j] > current){
+        arr[j+1] =arr[j];
+        j--;
+    }
+    arr[j+1] = current;
+
 }
-console.log(bubbleSort(arr));
+return arr;
+}
+console.log(insertionSort(arr));
