@@ -924,21 +924,38 @@
 // console.log(q.size());
 // q.print()
 
-//----find the largest even number in a array--------
-const arr = [1, 2, 3, 4, 5, 6, , 7, 8, 9, 10];
+// //----find the largest even number in a array--------
+// const arr = [1, 2, 3, 4, 5, 6, , 7, 8, 9, 10];
 
-function larEven(arr) {
-    let larE = null;
+// function larEven(arr) {
+//     let larE = null;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] % 2 === 0) {
+//             if ((larE = null || arr[i] > larE)) {
+//                 larE = arr[i];
+//             }
+//         }
+//     }
+//     return larE;
+// }
+// console.log(larEven(arr));
+
+//----------Find the sum of all even numbers greater than 10.------------
+
+const arr = [11, 12, 13, 14, 15, 16, 17, 18, 19, 10, 1, 2, 3, 4];
+
+function sumE10(arr) {
+    let n = 0;
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] % 2 === 0) {
-            if ((larE = null || arr[i] > larE)) {
-                larE = arr[i];
-            }
+        if (arr[i] % 2 === 0 && arr[i] > 10) {
+            n += arr[i];
         }
     }
-    return larE;
+
+    return n;
 }
-console.log(larEven(arr));
+
+console.log(sumE10(arr));
 
 //----Linked List Implementation-------------
 
