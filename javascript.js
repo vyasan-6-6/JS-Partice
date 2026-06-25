@@ -944,7 +944,16 @@ class LinkedList {
     getSize() {
         return this.size;
     }
-    
+    prepend(value) {
+        const node = new Node(value);
+        if (this.isEmpty()) {
+            this.head = node;
+        } else {
+            node.next = this.head;
+            this.head = node;
+        }
+        this.size++;
+    }
      
     print() {
         if (this.isEmpty()) {
@@ -961,7 +970,9 @@ class LinkedList {
     }
 }
 const list = new LinkedList();
-  
+list.prepend(8);
+list.prepend(1);
+list.prepend(12); 
 list.print();
 console.log(list.isEmpty());
 console.log(list.getSize());
