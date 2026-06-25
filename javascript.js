@@ -1,4 +1,5 @@
 // Events
+ 
 
 // this is most reccommended way
 // function onAlert(){
@@ -857,28 +858,70 @@
 // }
 // console.log(quickSort(arr));
 
-const arr = [3, 5, 1, 5, 0, 2, 13, 6, 7, 88, 654];
+// const arr = [3, 5, 1, 5, 0, 2, 13, 6, 7, 88, 654];
 
-function mergeSort(arr) {
-    if(arr.length <2) return arr;
-    const mid = Math.floor(arr.length / 2);
-    const left = arr.slice(0, mid);
-    const right = arr.slice(mid);
+// function mergeSort(arr) {
+//     if(arr.length <2) return arr;
+//     const mid = Math.floor(arr.length / 2);
+//     const left = arr.slice(0, mid);
+//     const right = arr.slice(mid);
 
-    return merge(mergeSort(left), mergeSort(right));
-}
+//     return merge(mergeSort(left), mergeSort(right));
+// }
 
-function merge(left, right) {
-    let sorted = [];
-    while (left.length && right.length) {
-        if(left[0]<=right[0]){
-            sorted.push(left.shift());
-        }else{
-            sorted.push(right.shift());
-        }
+// function merge(left, right) {
+//     let sorted = [];
+//     while (left.length && right.length) {
+//         if(left[0]<=right[0]){
+//             sorted.push(left.shift());
+//         }else{
+//             sorted.push(right.shift());
+//         }
+//     }
+//     return [...sorted,...left,...right]
+// }
+
+// console.log(mergeSort(arr));
+
+
+//---Optimized Queue implementation-------------
+
+class Queue{
+    constructor(){ //this has O(1) for dequeue and enqueue ,while using object 
+        this.items = {};
+        this.rear=0;
+        this.front=0;
     }
-    return [...sorted,...left,...right]
+    enqueue(e){
+        this.items[this.rear] = e;
+    this.rear++;
+    }
+    dequeue(){
+        const item = this.items[this.front];
+        delete this.items[this.front];
+        this.front++;
+        return item;
+    }
+    isEmpty(){
+        return this.rear-this.front === 0 ;
+    }
+    size(){
+        return this.rear-this.front;
+    }
+    peek(){
+        return this.items[this.front]
+    }
+    print(){
+        console.log(this.items);
+        
+    }
 }
 
-console.log(mergeSort(arr));
-
+const q =  new Queue();
+q.enqueue(2);
+q.enqueue(8);
+q.enqueue(98)
+q.dequeue()
+q.dequeue()
+console.log(q.size());
+q.print()
