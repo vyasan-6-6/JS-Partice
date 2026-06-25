@@ -1,5 +1,4 @@
 // Events
- 
 
 // this is most reccommended way
 // function onAlert(){
@@ -883,45 +882,65 @@
 
 // console.log(mergeSort(arr));
 
-
 //---Optimized Queue implementation-------------
 
-class Queue{
-    constructor(){ //this has O(1) for dequeue and enqueue ,while using object 
-        this.items = {};
-        this.rear=0;
-        this.front=0;
-    }
-    enqueue(e){
-        this.items[this.rear] = e;
-    this.rear++;
-    }
-    dequeue(){
-        const item = this.items[this.front];
-        delete this.items[this.front];
-        this.front++;
-        return item;
-    }
-    isEmpty(){
-        return this.rear-this.front === 0 ;
-    }
-    size(){
-        return this.rear-this.front;
-    }
-    peek(){
-        return this.items[this.front]
-    }
-    print(){
-        console.log(this.items);
-        
+// class Queue{
+//     constructor(){ //this has O(1) for dequeue and enqueue ,while using object
+//         this.items = {};
+//         this.rear=0;
+//         this.front=0;
+//     }
+//     enqueue(e){
+//         this.items[this.rear] = e;
+//     this.rear++;
+//     }
+//     dequeue(){
+//         const item = this.items[this.front];
+//         delete this.items[this.front];
+//         this.front++;
+//         return item;
+//     }
+//     isEmpty(){
+//         return this.rear-this.front === 0 ;
+//     }
+//     size(){
+//         return this.rear-this.front;
+//     }
+//     peek(){
+//         return this.items[this.front]
+//     }
+//     print(){
+//         console.log(this.items);
+
+//     }
+// }
+
+// const q =  new Queue();
+// q.enqueue(2);
+// q.enqueue(8);
+// q.enqueue(98)
+// q.dequeue()
+// q.dequeue()
+// console.log(q.size());
+// q.print()
+
+//----Linked List Implementation-------------
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
     }
 }
 
-const q =  new Queue();
-q.enqueue(2);
-q.enqueue(8);
-q.enqueue(98)
-q.dequeue()
-q.dequeue()
-console.log(q.size());
-q.print()
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
+     
+     
+   
+}
+const list = new LinkedList();
+    
