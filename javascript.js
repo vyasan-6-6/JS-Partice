@@ -946,9 +946,22 @@ class LinkedList {
     }
     
      
-   
+    print() {
+        if (this.isEmpty()) {
+            console.log(`LinkedList is empty.`);
+        } else {
+            let curr = this.head;
+            let listValues = "";
+            while (curr) {
+                listValues += `${curr.value} `;
+                curr = curr.next;
+            }
+            console.log(listValues);
+        }
+    }
 }
 const list = new LinkedList();
-   
+  
+list.print();
 console.log(list.isEmpty());
 console.log(list.getSize());
