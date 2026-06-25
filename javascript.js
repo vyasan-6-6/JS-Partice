@@ -924,69 +924,85 @@
 // console.log(q.size());
 // q.print()
 
+//----find the largest even number in a array--------
+const arr = [1, 2, 3, 4, 5, 6, , 7, 8, 9, 10];
+
+function larEven(arr) {
+    let larE = null;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            if ((larE = null || arr[i] > larE)) {
+                larE = arr[i];
+            }
+        }
+    }
+    return larE;
+}
+console.log(larEven(arr));
+
 //----Linked List Implementation-------------
 
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
-}
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
 
-class LinkedList {
-    constructor() {
-        this.head = null;
-        this.size = 0;
-    }
-    isEmpty() {
-        return this.size === 0;
-    }
-    getSize() {
-        return this.size;
-    }
-    prepend(value) {
-        const node = new Node(value);
-        if (this.isEmpty()) {
-            this.head = node;
-        } else {
-            node.next = this.head;
-            this.head = node;
-        }
-        this.size++;
-    }
-    append(value) {
-        const node = new Node(value);
-        if (this.isEmpty()) {
-            this.head = node;
-        } else {
-    let pre  = this.head;
-    while(pre.next){
-        pre = pre.next;
-    }
-    pre.next = node 
-     
-        }
-        this.size++;
-    }
-    print() {
-        if (this.isEmpty()) {
-            console.log(`LinkedList is empty.`);
-        } else {
-            let curr = this.head;
-            let listValues = "";
-            while (curr) {
-                listValues += `${curr.value} `;
-                curr = curr.next;
-            }
-            console.log(listValues);
-        }
-    }
-}
-const list = new LinkedList();
-list.prepend(8);
-list.prepend(1);
-list.prepend(12);
-list.append(9)
-list.print();
-console.log(list.isEmpty());
-console.log(list.getSize());
+// class LinkedList {
+//     constructor() {
+//         this.head = null;
+//         this.size = 0;
+//     }
+//     isEmpty() {
+//         return this.size === 0;
+//     }
+//     getSize() {
+//         return this.size;
+//     }
+//     prepend(value) {
+//         const node = new Node(value);
+//         if (this.isEmpty()) {
+//             this.head = node;
+//         } else {
+//             node.next = this.head;
+//             this.head = node;
+//         }
+//         this.size++;
+//     }
+//     append(value) {
+//         const node = new Node(value);
+//         if (this.isEmpty()) {
+//             this.head = node;
+//         } else {
+//     let pre  = this.head;
+//     while(pre.next){
+//         pre = pre.next;
+//     }
+//     pre.next = node
+
+//         }
+//         this.size++;
+//     }
+//     print() {
+//         if (this.isEmpty()) {
+//             console.log(`LinkedList is empty.`);
+//         } else {
+//             let curr = this.head;
+//             let listValues = "";
+//             while (curr) {
+//                 listValues += `${curr.value} `;
+//                 curr = curr.next;
+//             }
+//             console.log(listValues);
+//         }
+//     }
+// }
+// const list = new LinkedList();
+// list.prepend(8);
+// list.prepend(1);
+// list.prepend(12);
+// list.append(9)
+// list.print();
+// console.log(list.isEmpty());
+// console.log(list.getSize());
