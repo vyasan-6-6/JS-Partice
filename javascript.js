@@ -1018,26 +1018,26 @@ class LinkedList {
         }
         this.size++;
     }
-    removeValue(value){ 
-        if(this.isEmpty()){
+    removeValue(value) {
+        if (this.isEmpty()) {
             return null;
         }
-        if(this.head.value === value){
+        if (this.head.value === value) {
             this.head = this.head.next;
             this.size--;
             return value;
-        }else{
+        } else {
             let pre = this.head;
-            while(pre.next && pre.next.value !== value){
+            while (pre.next && pre.next.value !== value) {
                 pre = pre.next;
             }
-           if(pre.next){
-           const removedNode = pre.next;
-            pre.next = removedNode.next;
-            this.size--;
-            return value
-        }
-       return null;    
+            if (pre.next) {
+                const removedNode = pre.next;
+                pre.next = removedNode.next;
+                this.size--;
+                return value;
+            }
+            return null;
         }
     }
     removeFrom(index) {
@@ -1059,6 +1059,33 @@ class LinkedList {
         this.size--;
         return removedNode.value;
     }
+    search(value) {
+        if (this.isEmpty()) {
+            return -1;
+        }
+
+        let i = 0;
+        let curr = this.head;
+        while (curr) {
+            if (curr.value === value) {
+                return i;
+            }
+            curr = curr.next;
+            i++;
+        }
+        return -1;
+    }
+    reverse(){
+        let pre = null ; 
+        let curr = this.head;
+        while(curr){
+            let next = curr.next;
+            curr.next = pre;
+            pre =  curr;
+            curr = next;
+        }
+        this.head = pre;
+    }
     print() {
         if (this.isEmpty()) {
             console.log(`LinkedList is empty.`);
@@ -1079,6 +1106,8 @@ list.prepend(1);
 list.prepend(12);
 list.append(9);
 list.insert(4, 10);
-list.removeFrom(1)
-console.log(list.removeValue(8)) 
+list.removeFrom(1);
+console.log(list.removeValue(8));
+console.log(list.search(320));
+list.reverse()
 list.print();
