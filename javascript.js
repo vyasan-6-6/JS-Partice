@@ -942,84 +942,102 @@
 
 //----------Find the sum of all even numbers greater than 10.------------
 
-const arr = [11, 12, 13, 14, 15, 16, 17, 18, 19, 10, 1, 2, 3, 4];
+// const arr = [11, 12, 13, 14, 15, 16, 17, 18, 19, 10, 1, 2, 3, 4];
 
-function sumE10(arr) {
-    let n = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] % 2 === 0 && arr[i] > 10) {
-            n += arr[i];
-        }
-    }
+// function sumE10(arr) {
+//     let sum = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] % 2 === 0 && arr[i] > 10) {
+//             sum += arr[i];
+//         }
+//     }
 
-    return n;
-}
+//     return sum;
+// }
 
-console.log(sumE10(arr));
+// console.log(sumE10(arr));
 
 //----Linked List Implementation-------------
 
-// class Node {
-//     constructor(value) {
-//         this.value = value;
-//         this.next = null;
-//     }
-// }
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
+    }
+}
 
-// class LinkedList {
-//     constructor() {
-//         this.head = null;
-//         this.size = 0;
-//     }
-//     isEmpty() {
-//         return this.size === 0;
-//     }
-//     getSize() {
-//         return this.size;
-//     }
-//     prepend(value) {
-//         const node = new Node(value);
-//         if (this.isEmpty()) {
-//             this.head = node;
-//         } else {
-//             node.next = this.head;
-//             this.head = node;
-//         }
-//         this.size++;
-//     }
-//     append(value) {
-//         const node = new Node(value);
-//         if (this.isEmpty()) {
-//             this.head = node;
-//         } else {
-//     let pre  = this.head;
-//     while(pre.next){
-//         pre = pre.next;
-//     }
-//     pre.next = node
-
-//         }
-//         this.size++;
-//     }
-//     print() {
-//         if (this.isEmpty()) {
-//             console.log(`LinkedList is empty.`);
-//         } else {
-//             let curr = this.head;
-//             let listValues = "";
-//             while (curr) {
-//                 listValues += `${curr.value} `;
-//                 curr = curr.next;
-//             }
-//             console.log(listValues);
-//         }
-//     }
-// }
-// const list = new LinkedList();
-// list.prepend(8);
-// list.prepend(1);
-// list.prepend(12);
-// list.append(9)
-// list.print();
-// console.log(list.isEmpty());
-// console.log(list.getSize());
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
+    isEmpty() {
+        return this.size === 0;
+    }
+    getSize() {
+        return this.size;
+    }
+    prepend(value) {
+        const node = new Node(value);
+        if (this.isEmpty()) {
+            this.head = node;
+        } else {
+            node.next = this.head;
+            this.head = node;
+        }
+        this.size++;
+    }
+    append(value) {
+        const node = new Node(value);
+        if (this.isEmpty()) {
+            this.head = node;
+        } else {
+            let pre = this.head;
+            while (pre.next) {
+                pre = pre.next;
+            }
+            pre.next = node;
+        }
+        this.size++;
+    }
+    insert(index,value){
+        if(index===0 || index >this.size){
+            return ;
+        }
+        if(index===0){
+            this.prepend(value)
+        }else{
+            let node = new Node(value);
+            let pre = this.head;
+            for(let i = 0 ; i<index-1 ; i++){
+                pre = pre.next;
+            }
+           
+          node.next = pre.next;
+         pre.next = node;
+        }
+        this.size++;
+    }
+    print() {
+        if (this.isEmpty()) {
+            console.log(`LinkedList is empty.`);
+        } else {
+            let curr = this.head;
+            let listValues = "";
+            while (curr) {
+                listValues += `${curr.value} `;
+                curr = curr.next;
+            }
+            console.log(listValues);
+        }
+    }
+}
+const list = new LinkedList();
+list.prepend(8);
+list.prepend(1);
+list.prepend(12);
+list.append(9);
+list.insert(4,10)
+list.print();
+console.log(list.isEmpty());
+console.log(list.getSize());
