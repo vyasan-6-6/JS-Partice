@@ -1000,23 +1000,42 @@ class LinkedList {
         }
         this.size++;
     }
-    insert(index,value){
-        if(index===0 || index >this.size){
-            return ;
+    insert(index, value) {
+        if (index === 0 || index > this.size) {
+            return;
         }
-        if(index===0){
-            this.prepend(value)
-        }else{
+        if (index === 0) {
+            this.prepend(value);
+        } else {
             let node = new Node(value);
             let pre = this.head;
-            for(let i = 0 ; i<index-1 ; i++){
+            for (let i = 0; i < index - 1; i++) {
                 pre = pre.next;
             }
-           
-          node.next = pre.next;
-         pre.next = node;
+
+            node.next = pre.next;
+            pre.next = node;
         }
         this.size++;
+    }
+    removeFrom(index) {
+        if (index < 0 || index >= this.size) {
+            return null;
+        }
+        let removedNode;
+        if (index === 0) {
+            removedNode = this.head;
+            this.head = this.head.next;
+        } else {
+            let pre = this.head;
+            for (let i = 0; i < index - 1; i++) {
+                pre = pre.next;
+            }
+            removedNode = pre.next;
+            pre.next = removedNode.next;
+        }
+        this.size--;
+        return removedNode.value;
     }
     print() {
         if (this.isEmpty()) {
@@ -1037,7 +1056,6 @@ list.prepend(8);
 list.prepend(1);
 list.prepend(12);
 list.append(9);
-list.insert(4,10)
+list.insert(4, 10);
+console.log(list.removeFrom(3));
 list.print();
-console.log(list.isEmpty());
-console.log(list.getSize());
