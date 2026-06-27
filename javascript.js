@@ -1241,6 +1241,16 @@ class LinkedList {
         }
         this.head = pre;
     }
+    countEvenNodes(){
+        let curr = this.head;
+        let count=0
+        while(curr){
+         if(curr.value % 2 === 0 ){
+        count++;
+         }   
+         curr = curr.next;
+        }return count;
+    }
     print() {
         if (this.isEmpty()) {
             console.log(`LinkedList is empty`);
@@ -1261,11 +1271,12 @@ class LinkedList {
 }
 const l = new LinkedList();
 l.prepend(3);
-l.prepend(5);
+l.prepend(52);
 l.append(8);
 l.insert(2, 9);
 console.log(l.removeFrom(2));
 console.log(l.removeValue(3));
 console.log(l.search(5));
 l.reverse();
+console.log(l.countEvenNodes())
 l.print();
