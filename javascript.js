@@ -1346,14 +1346,22 @@
 //    r--;
 // }
 
-const arr ='hello';
-  const s = arr.split("");
-let l = 0 ;
-let r =s.length-1;
-while(l<r){
-   [s[l],s[r]] = [s[r],s[l]];
-   l++;
-   r--;
-}
+// const arr ='hello';
+//   const s = arr.split("");
+// let l = 0 ;
+// let r =s.length-1;
+// while(l<r){
+//    [s[l],s[r]] = [s[r],s[l]];
+//    l++;
+//    r--;
+// }
 
-console.log(s.join(''));
+// console.log(s.join(''));
+
+// for(let i = 0 ; i < arr.length-1;i++){}
+const arr = [1,3,2,4,2,5,6,7,5,3,2,3,5,6];
+let re = [];
+for(let i = 0 ; i < arr.length-1;i++){
+if(!re.includes(arr[i])){re.push(arr[i])}
+}
+console.log(re);
