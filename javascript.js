@@ -1321,10 +1321,14 @@
 // // console.log(l.countEvenNodes());
 // list.print();
 
+// const arr = 'string';
+// let ar = arr.split('');
+// let re =[]
+// for(let i =  ar.length-1 ; i >=0 ;i--){
+//     re.push(ar[i])
+// }
+// console.log(re.join(""));
+
 const arr = 'string';
-let ar = arr.split('');
-let re =[]
-for(let i =  ar.length-1 ; i >=0 ;i--){
- re.push(ar[i])
-}
-console.log(re.join(""));
+const ar= arr.split('').reverse().join('');
+console.log(ar);
