@@ -1333,17 +1333,27 @@
 // const ar= arr.split('').reverse().join('');
 // console.log(ar);
 
-const arr = [1,2,3,4,5,6,7,8,9,10];
-// let re = []
-// for(let i =  arr.length-1 ; i >=0 ;i--){
-//     re.push(arr[i])
+// const arr = [1,2,3,4,5,6,7,8,9,10];
+// // let re = []
+// // for(let i =  arr.length-1 ; i >=0 ;i--){
+// //     re.push(arr[i])
+// // }
+// let l = 0 ;
+// let r = arr.length-1;
+// while(l<r){
+//    [arr[l],arr[r]] = [arr[r],arr[l]];
+//    l++;
+//    r--;
 // }
+
+const arr ='hello';
+  const s = arr.split("");
 let l = 0 ;
-let r = arr.length-1;
+let r =s.length-1;
 while(l<r){
-   [arr[l],arr[r]] = [arr[r],arr[l]];
+   [s[l],s[r]] = [s[r],s[l]];
    l++;
    r--;
 }
 
-console.log(arr);
+console.log(s.join(''));
