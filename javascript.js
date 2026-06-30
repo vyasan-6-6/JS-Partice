@@ -1122,185 +1122,209 @@
 // }
 // console.log(arr)
 
-class Node {
-    constructor(value) {
-        this.value = value;
-        this.next = null;
-    }
+// class Node {
+//     constructor(value) {
+//         this.value = value;
+//         this.next = null;
+//     }
+// }
+
+// class LinkedList {
+//     constructor() {
+//         this.head = null;
+//         this.size = 0;
+//     }
+//     getSize() {
+//         return this.size;
+//     }
+//     isEmpty() {
+//         return this.size === 0;
+//     }
+//     prepend(value) {
+//         const node = new Node(value);
+//         if (this.isEmpty()) {
+//             this.head = node;
+//         } else {
+//             node.next = this.head;
+//             this.head = node;
+//         }
+//         this.size++;
+//     }
+//     append(value) {
+//         const node = new Node(value);
+//         if (this.isEmpty()) {
+//             node = this.head;
+//         } else {
+//             let pre = this.head;
+//             while (pre.next) {
+//                 pre = pre.next;
+//             }
+//             pre.next = node;
+//         }
+//         this.size++;
+//     }
+//     insert(ind, value) {
+//         if (ind < 0 || ind > this.size) {
+//             return "invalid index";
+//         }
+//         if (ind === 0) {
+//             this.prepend(value);
+//         } else {
+//             const node = new Node(value);
+//             let pre = this.head;
+
+//             for (let i = 0; i < ind - 1; i++) {
+//                 pre = pre.next;
+//             }
+//             node.next = pre.next;
+//             pre.next = node;
+//             this.size++;
+//         }
+//     }
+//     removeFrom(ind) {
+//         if (ind < 0 || ind > this.size) {
+//             return "invalid index";
+//         }
+//         let removedNode;
+//         if (ind === 0) {
+//             removedNode = this.head;
+//             this.head = this.head.next;
+//         } else {
+//             let pre = this.head;
+//             for (let i = 0; i < ind - 1; i++) {
+//                 pre = pre.next;
+//             }
+//             removedNode = pre.next;
+//             pre.next = removedNode.next;
+//             this.size--;
+//             return removedNode.value;
+//         }
+//     }
+//     removeValue(value) {
+//         if (this.isEmpty()) {
+//             return "No value to be removed present";
+//         }
+
+//         if (this.head.value === value) {
+//             this.head = this.head.next;
+//             this.size--;
+//             return value;
+//         } else {
+//             let pre = this.head;
+//             while (pre.next && pre.next.value !== value) {
+//                 pre = pre.next;
+//             }
+//             if (pre.next) {
+//                 const removedNode = pre.next;
+//                 pre.next = removedNode.next;
+//                 this.size--;
+//                 return removedNode.value;
+//             }
+//         }
+//         return null;
+//     }
+
+//     search(value) {
+//         if (this.isEmpty()) {
+//             return -1;
+//         }
+//         let i = 0;
+//         let curr = this.head;
+//         while (curr) {
+//             if (curr.value === value) {
+//                 return i;
+//             }
+//             curr = curr.next;
+//             i++;
+//         }
+//         return -1;
+//     }
+//     reverse() {
+//         let pre = null;
+//         let curr = this.head;
+
+//         while (curr) {
+//             let next = curr.next;
+//             curr.next = pre;
+//             pre = curr;
+//             curr = next;
+//         }
+//         this.head = pre;
+//     }
+//     countEvenNodes() {
+//         let curr = this.head;
+//         let count = 0;
+//         while (curr) {
+//             if (curr.value % 2 === 0) {
+//                 count++;
+//             }
+//             curr = curr.next;
+//         }
+//         return count;
+//     }
+//     middle() {
+//         let slow = this.head;
+//         let fast = this.head;
+//         while (fast !== null && fast.next !== null) {
+//             slow = slow.next;
+//             fast = fast.next.next;
+//         }
+//         return slow.value;
+//     }
+//     middleDelete() {
+//         if (this.head === null) return null;
+//         if (this.head.next === null) return null;
+//         let slow = this.head;
+//         let fast = this.head;
+//         let pre = null;
+//         while (fast !== null && fast.next !== null) {
+//             pre = slow;
+//             slow = slow.next;
+//             fast = fast.next.next;
+//         }
+//         pre.next = slow.next;
+//         return this.head;
+//     }
+//     print() {
+//         if (this.isEmpty()) {
+//             console.log(`LinkedList is empty`);
+//         } else {
+//             let curr = this.head;
+//             let listValues = "";
+//             let count = 0;
+//             let sum = 0;
+//             while (curr) {
+//                 listValues += `${curr.value} `;
+//                 sum += curr.value;
+//                 count++;
+//                 curr = curr.next;
+//             }
+//             console.log(`list values : ${listValues} and count : ${count} sum: ${sum} `);
+//         }
+//     }
+// }
+// const list = new LinkedList();
+// list.prepend(52);
+// list.append(8);
+// list.append(18);
+// list.prepend(3);
+// list.append(82);
+// list.append(9);
+// list.insert(2, 9);
+// list.middle();
+// console.log(list.middleDelete());
+
+// // console.log(l.removeFrom(2));
+// // console.log(l.removeValue(3));
+// // console.log(l.search(5));
+// // l.reverse();
+// // console.log(l.countEvenNodes());
+// list.print();
+
+const arr = 'string';
+let ar = arr.split('');
+let re =[]
+for(let i =  ar.length-1 ; i >=0 ;i--){
+ re.push(ar[i])
 }
-
-class LinkedList {
-    constructor() {
-        this.head = null;
-        this.size = 0;
-    }
-    getSize() {
-        return this.size;
-    }
-    isEmpty() {
-        return this.size === 0;
-    }
-    prepend(value) {
-        const node = new Node(value);
-        if (this.isEmpty()) {
-            this.head = node;
-        } else {
-            node.next = this.head;
-            this.head = node;
-        }
-        this.size++;
-    }
-    append(value) {
-        const node = new Node(value);
-        if (this.isEmpty()) {
-            node = this.head;
-        } else {
-            let pre = this.head;
-            while (pre.next) {
-                pre = pre.next;
-            }
-            pre.next = node;
-        }
-        this.size++;
-    }
-    insert(ind, value) {
-        if (ind < 0 || ind > this.size) {
-            return "invalid index";
-        }
-        if (ind === 0) {
-            this.prepend(value);
-        } else {
-            const node = new Node(value);
-            let pre = this.head;
-
-            for (let i = 0; i < ind - 1; i++) {
-                pre = pre.next;
-            }
-            node.next = pre.next;
-            pre.next = node;
-            this.size++;
-        }
-    }
-    removeFrom(ind) {
-        if (ind < 0 || ind > this.size) {
-            return "invalid index";
-        }
-        let removedNode;
-        if (ind === 0) {
-            removedNode = this.head;
-            this.head = this.head.next;
-        } else {
-            let pre = this.head;
-            for (let i = 0; i < ind - 1; i++) {
-                pre = pre.next;
-            }
-            removedNode = pre.next;
-            pre.next = removedNode.next;
-            this.size--;
-            return removedNode.value;
-        }
-    }
-    removeValue(value) {
-        if (this.isEmpty()) {
-            return "No value to be removed present";
-        }
-
-        if (this.head.value === value) {
-            this.head = this.head.next;
-            this.size--;
-            return value;
-        } else {
-            let pre = this.head;
-            while (pre.next && pre.next.value !== value) {
-                pre = pre.next;
-            }
-            if (pre.next) {
-                const removedNode = pre.next;
-                pre.next = removedNode.next;
-                this.size--;
-                return removedNode.value;
-            }
-        }
-        return null;
-    }
-
-    search(value) {
-        if (this.isEmpty()) {
-            return -1;
-        }
-        let i = 0;
-        let curr = this.head;
-        while (curr) {
-            if (curr.value === value) {
-                return i;
-            }
-            curr = curr.next;
-            i++;
-        }
-        return -1;
-    }
-    reverse() {
-        let pre = null;
-        let curr = this.head;
-
-        while (curr) {
-            let next = curr.next;
-            curr.next = pre;
-            pre = curr;
-            curr = next;
-        }
-        this.head = pre;
-    }
-    countEvenNodes() {
-        let curr = this.head;
-        let count = 0;
-        while (curr) {
-            if (curr.value % 2 === 0) {
-                count++;
-            }
-            curr = curr.next;
-        }
-        return count;
-    }
-    middle(){
-        let slow = this.head;
-        let fast = this.head;
-        while(fast!==null && fast.next !==null){
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        return slow.value;
-    }
-    print() {
-        if (this.isEmpty()) {
-            console.log(`LinkedList is empty`);
-        } else {
-            let curr = this.head;
-            let listValues = "";
-            let count = 0;
-            let sum = 0;
-            while (curr) {
-                listValues += `${curr.value} `;
-                sum += curr.value;
-                count++;
-                curr = curr.next;
-            }
-            console.log(`list values : ${listValues} and count : ${count} sum: ${sum} `);
-        }
-    }
-}
-const l = new LinkedList();
-l.prepend(52);
-l.append(8);
-l.append(18);
-l.prepend(3);
-l.append(82);
-l.append(9);
-l.insert(2, 9);
-console.log(l.middle())
-// console.log(l.removeFrom(2));
-// console.log(l.removeValue(3));
-// console.log(l.search(5));
-// l.reverse();
-// console.log(l.countEvenNodes());
-l.print();
+console.log(re.join(""));
