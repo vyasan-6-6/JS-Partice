@@ -1359,9 +1359,15 @@
 // console.log(s.join(''));
 
 // for(let i = 0 ; i < arr.length-1;i++){}
+// const arr = [1,3,2,4,2,5,6,7,5,3,2,3,5,6];
+// let re = [];
+// for(let i = 0 ; i < arr.length-1;i++){
+// if(!re.includes(arr[i])){re.push(arr[i])}
+// }
+// console.log(re);
 const arr = [1,3,2,4,2,5,6,7,5,3,2,3,5,6];
-let re = [];
-for(let i = 0 ; i < arr.length-1;i++){
-if(!re.includes(arr[i])){re.push(arr[i])}
-}
-console.log(re);
+ function removeDuplicates(arr){
+    return [...new Set(arr)]
+ }
+ console.log(removeDuplicates(arr));
+ 
