@@ -1329,6 +1329,21 @@
 // }
 // console.log(re.join(""));
 
-const arr = 'string';
-const ar= arr.split('').reverse().join('');
-console.log(ar);
+// const arr = 'string';
+// const ar= arr.split('').reverse().join('');
+// console.log(ar);
+
+const arr = [1,2,3,4,5,6,7,8,9,10];
+// let re = []
+// for(let i =  arr.length-1 ; i >=0 ;i--){
+//     re.push(arr[i])
+// }
+let l = 0 ;
+let r = arr.length-1;
+while(l<r){
+   [arr[l],arr[r]] = [arr[r],arr[l]];
+   l++;
+   r--;
+}
+
+console.log(arr);
