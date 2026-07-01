@@ -1378,16 +1378,40 @@
 // }
 // console.log(isPalindrome("amadama"));
 
-function isPalindrome(str){
-    let l = 0 ; 
-     let r = str.length-1;
-     while(l<r){
-    if(str[l]!==str[r]){
-        return false;
+// function isPalindrome(str){
+//     let l = 0 ; 
+//      let r = str.length-1;
+//      while(l<r){
+//     if(str[l]!==str[r]){
+//         return false;
+//     }
+//     l++;
+//     r--;
+//      }
+//      return true;
+// }
+// console.log(isPalindrome('madama'));
+
+// function twoSum(arr,tar){
+// let map = {};
+// for(let i = 0 ; i < arr.length ; i++){
+//     let x = tar - arr[i];
+//     if(x in map ){
+//         return [i,map[x]];
+//     }
+//     map[arr[i]] = i;
+// }
+// }
+// console.log(twoSum([1,3,2,6],8));
+
+function twoSum(arr,tar){
+let map = new Map();
+for(let i = 0 ; i < arr.length ; i++){
+    let x = tar - arr[i];
+    if(map.has(x)){
+        return [map.get(x),i];
     }
-    l++;
-    r--;
-     }
-     return true;
+    map.set(arr[i],i)
 }
-console.log(isPalindrome('madama'));
+}
+console.log(twoSum([1,3,2,6],8));
