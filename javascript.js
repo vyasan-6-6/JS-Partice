@@ -1361,13 +1361,19 @@
 // for(let i = 0 ; i < arr.length-1;i++){}
 // const arr = [1,3,2,4,2,5,6,7,5,3,2,3,5,6];
 // let re = [];
-// for(let i = 0 ; i < arr.length-1;i++){
+// for(let i = 0 ; i < arr.length-1;i++){//time o(n^2) space o(n). includes () is o(n) , so nested loops gives you o(n^2);
 // if(!re.includes(arr[i])){re.push(arr[i])}
 // }
 // console.log(re);
-const arr = [1,3,2,4,2,5,6,7,5,3,2,3,5,6];
- function removeDuplicates(arr){
-    return [...new Set(arr)]
- }
- console.log(removeDuplicates(arr));
+
+// const arr = [1,3,2,4,2,5,6,7,5,3,2,3,5,6];//time o(n) space o(n).
+//  function removeDuplicates(arr){
+//     return [...new Set(arr)]
+//  }
+//  console.log(removeDuplicates(arr));
  
+function isPalindrome(str){
+    let char = str.split('').reverse().join('');
+    return char===str;
+}
+console.log(isPalindrome("amadama"));
