@@ -1455,24 +1455,22 @@
 // const sortAscending = arr.sort((a,b)=>b-a);
 // console.log(sortAscending);
 
-const arr = [5, 3, 8, 4, 2];
+// function bubbleSort(arr) {
+//     const n = arr.length;
+//     let swapped;
 
-function bubbleSort(arr) {
-    const n = arr.length;
-    let swapped;
-    
-    for (let i = 0; i < n - 1; i++) {
-        swapped = false;
-        for (let j = 0; j < n - 1 - i; j++) {
-            if (arr[j] > arr[j+1]) {
-                [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
-                swapped = true;
-            }
-        }
-        if(!swapped) break;
-    }
-    return arr;
-}
+//     for (let i = 0; i < n - 1; i++) {
+//         swapped = false;
+//         for (let j = 0; j < n - 1 - i; j++) {
+//             if (arr[j] > arr[j+1]) {
+//                 [arr[j], arr[j+1]] = [arr[j+1], arr[j]];
+//                 swapped = true;
+//             }
+//         }
+//         if(!swapped) break;
+//     }
+//     return arr;
+// }
 
 // function bubbleSort(arr) {
 //     let swapped;
@@ -1487,4 +1485,54 @@ function bubbleSort(arr) {
 //     } while (swapped);
 //     return arr;
 // }
-console.log(bubbleSort(arr));
+// console.log(bubbleSort(arr));
+
+const arr = [5, 3, 8, 4, 2];
+function mergeSort(arr) {
+
+    if (arr.length <= 1) {
+        return arr;
+    }
+
+    const mid = Math.floor(arr.length / 2);
+
+    const left = arr.slice(0, mid);
+    const right = arr.slice(mid);
+
+    return merge(
+        mergeSort(left),
+        mergeSort(right)
+    );
+}
+
+function merge(left, right) {
+
+    let result = [];
+    let i = 0;
+    let j = 0;
+
+    while (i < left.length && j < right.length) {
+
+        if (left[i] <= right[j]) {
+            result.push(left[i]);
+            i++;
+        } else {
+            result.push(right[j]);
+            j++;
+        }
+    }
+
+    while (i < left.length) {
+        result.push(left[i]);
+        i++;
+    }
+
+    while (j < right.length) {
+        result.push(right[j]);
+        j++;
+    }
+
+    return result;
+}
+
+console.log(mergeSort([8,3,5,4,7,6,1,2]));
