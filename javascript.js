@@ -1372,8 +1372,22 @@
 //  }
 //  console.log(removeDuplicates(arr));
  
+// function isPalindrome(str){
+//     let char = str.split('').reverse().join('');
+//     return char===str;
+// }
+// console.log(isPalindrome("amadama"));
+
 function isPalindrome(str){
-    let char = str.split('').reverse().join('');
-    return char===str;
+    let l = 0 ; 
+     let r = str.length-1;
+     while(l<r){
+    if(str[l]!==str[r]){
+        return false;
+    }
+    l++;
+    r--;
+     }
+     return true;
 }
-console.log(isPalindrome("amadama"));
+console.log(isPalindrome('madama'));
