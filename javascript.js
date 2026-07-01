@@ -1404,14 +1404,35 @@
 // }
 // console.log(twoSum([1,3,2,6],8));
 
-function twoSum(arr,tar){
-let map = new Map();
-for(let i = 0 ; i < arr.length ; i++){
-    let x = tar - arr[i];
-    if(map.has(x)){
-        return [map.get(x),i];
+// function twoSum(arr,tar){
+// let map = new Map();
+// for(let i = 0 ; i < arr.length ; i++){
+//     let x = tar - arr[i];
+//     if(map.has(x)){
+//         return [map.get(x),i];
+//     }
+//     map.set(arr[i],i)
+// }
+// }
+// console.log(twoSum([1,3,2,6],8));
+
+function Anagrams(s,t){
+    if(s.length!==s.length){return false};
+
+    let map = new Map();
+
+    for(const char of s){
+        map.set(char,(map.get(char) || 0)+1);
     }
-    map.set(arr[i],i)
+    for(const ch of t){
+        if(!map.get(ch)){
+            return false;
+        }
+        map.set(ch,map.get(ch)-1);
+        if(map.get(ch) === 0 ){
+            map.delete(ch)
+        }
+    }
+    return map.size===0
 }
-}
-console.log(twoSum([1,3,2,6],8));
+console.log(Anagrams('cllsa','clsal'));
