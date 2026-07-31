@@ -1487,52 +1487,319 @@
 // }
 // console.log(bubbleSort(arr));
 
-const arr = [5, 3, 8, 4, 2];
-function mergeSort(arr) {
+// const arr = [5, 3, 8, 4, 2];
+// function mergeSort(arr) {
 
-    if (arr.length <= 1) {
-        return arr;
+//     if (arr.length <= 1) {
+//         return arr;
+//     }
+
+//     const mid = Math.floor(arr.length / 2);
+
+//     const left = arr.slice(0, mid);
+//     const right = arr.slice(mid);
+
+//     return merge(
+//         mergeSort(left),
+//         mergeSort(right)
+//     );
+// }
+
+// function merge(left, right) {
+
+//     let result = [];
+//     let i = 0;
+//     let j = 0;
+
+//     while (i < left.length && j < right.length) {
+
+//         if (left[i] <= right[j]) {
+//             result.push(left[i]);
+//             i++;
+//         } else {
+//             result.push(right[j]);
+//             j++;
+//         }
+//     }
+
+//     while (i < left.length) {
+//         result.push(left[i]);
+//         i++;
+//     }
+
+//     while (j < right.length) {
+//         result.push(right[j]);
+//         j++;
+//     }
+
+//     return result;
+// }
+
+// console.log(mergeSort([8,3,5,4,7,6,1,2]));
+
+// class Stack {
+//     constructor(){
+//         this.items = [];
+
+//     }
+//     push(e){
+//         this.items.push(e)
+//     }
+//     isEmpty(){return this.items.length===0}
+//     pop(){
+//         if(this.isEmpty()){
+//            return 'empty'
+//         }
+//         return this.items.pop()
+//     }
+//     peek(){
+//         if(this.isEmpty()){
+//             return null;
+//         }
+//         return this.items[this.items.length-1];
+//     }
+//     size(){
+//         return this.items.length;
+//     }
+// }
+//  const s= new Stack();
+//  s.push(3);
+//  s.push(43);
+//  s.push(43);
+//  console.log(s.size());
+//  console.log(s.isEmpty());
+//  console.log(s.peek());
+
+//  function isPrime(n){
+//     if(n <2) return false;
+//     for(let i = 2 ; i <=Math.sqrt(n) ; i++){
+//         if(n%i===0){
+//             return false
+//         }
+//     }
+//     return true;
+//     }
+
+//     console.log(isPrime());
+
+// const arr = [2, 5, 8, 10, 15, 20];
+// function binarySearch(arr,tar){
+//     let l = 0 ;
+//      let r = arr.length-1;
+//      while(l<=r){
+//         let mid = Math.floor((l+r)/2);
+//         if(arr[mid]===tar){
+//             return mid;
+//         }
+//         if(arr[mid]<tar){
+//             l = mid+1;
+//         }else{
+//             r = mid-1;
+//         }
+//      }
+//      return -1
+// }
+// console.log(binarySearch(arr,10));
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.next = null;
     }
-
-    const mid = Math.floor(arr.length / 2);
-
-    const left = arr.slice(0, mid);
-    const right = arr.slice(mid);
-
-    return merge(
-        mergeSort(left),
-        mergeSort(right)
-    );
 }
 
-function merge(left, right) {
-
-    let result = [];
-    let i = 0;
-    let j = 0;
-
-    while (i < left.length && j < right.length) {
-
-        if (left[i] <= right[j]) {
-            result.push(left[i]);
-            i++;
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
+    append(value) {
+        const node = new Node(value);
+        if (!this.head) {
+            this.head = node;
         } else {
-            result.push(right[j]);
-            j++;
+            let cur = this.head;
+            while (cur.next) {
+                cur = cur.next;
+            }
+            cur.next = node;
         }
+        this.size++;
     }
-
-    while (i < left.length) {
-        result.push(left[i]);
-        i++;
-    }
-
-    while (j < right.length) {
-        result.push(right[j]);
-        j++;
-    }
-
-    return result;
+    
 }
 
-console.log(mergeSort([8,3,5,4,7,6,1,2]));
+// class LinkedList {
+//     constructor() {
+//         this.head = null;
+//         this.size = 0;
+//     }
+//     getSize() {
+//         return this.size;
+//     }
+//     isEmpty() {
+//         return this.size === 0;
+//     }
+//     prepend(value) {
+//         const node = new Node(value);
+//         if (this.isEmpty()) {
+//             this.head = node;
+//         } else {
+//             node.next = this.head;
+//             this.head = node;
+//         }
+//         this.size++;
+//     }
+//     append(value) {
+//         const node = new Node(value);
+//         if (this.isEmpty()) {
+//             node = this.head;
+//         } else {
+//             let pre = this.head;
+//             while (pre.next) {
+//                 pre = pre.next;
+//             }
+//             pre.next = node;
+//         }
+//         this.size++;
+//     }
+//     insert(ind, value) {
+//         if (ind < 0 || ind > this.size) {
+//             return "invalid index";
+//         }
+//         if (ind === 0) {
+//             this.prepend(value);
+//         } else {
+//             const node = new Node(value);
+//             let pre = this.head;
+
+//             for (let i = 0; i < ind - 1; i++) {
+//                 pre = pre.next;
+//             }
+//             node.next = pre.next;
+//             pre.next = node;
+//             this.size++;
+//         }
+//     }
+//     removeFrom(ind) {
+//         if (ind < 0 || ind > this.size) {
+//             return "invalid index";
+//         }
+//         let removedNode;
+//         if (ind === 0) {
+//             removedNode = this.head;
+//             this.head = this.head.next;
+//         } else {
+//             let pre = this.head;
+//             for (let i = 0; i < ind - 1; i++) {
+//                 pre = pre.next;
+//             }
+//             removedNode = pre.next;
+//             pre.next = removedNode.next;
+//             this.size--;
+//             return removedNode.value;
+//         }
+//     }
+//     removeValue(value) {
+//         if (this.isEmpty()) {
+//             return "No value to be removed present";
+//         }
+
+//         if (this.head.value === value) {
+//             this.head = this.head.next;
+//             this.size--;
+//             return value;
+//         } else {
+//             let pre = this.head;
+//             while (pre.next && pre.next.value !== value) {
+//                 pre = pre.next;
+//             }
+//             if (pre.next) {
+//                 const removedNode = pre.next;
+//                 pre.next = removedNode.next;
+//                 this.size--;
+//                 return removedNode.value;
+//             }
+//         }
+//         return null;
+//     }
+
+//     search(value) {
+//         if (this.isEmpty()) {
+//             return -1;
+//         }
+//         let i = 0;
+//         let curr = this.head;
+//         while (curr) {
+//             if (curr.value === value) {
+//                 return i;
+//             }
+//             curr = curr.next;
+//             i++;
+//         }
+//         return -1;
+//     }
+//     reverse() {
+//         let pre = null;
+//         let curr = this.head;
+
+//         while (curr) {
+//             let next = curr.next;
+//             curr.next = pre;
+//             pre = curr;
+//             curr = next;
+//         }
+//         this.head = pre;
+//     }
+//     countEvenNodes() {
+//         let curr = this.head;
+//         let count = 0;
+//         while (curr) {
+//             if (curr.value % 2 === 0) {
+//                 count++;
+//             }
+//             curr = curr.next;
+//         }
+//         return count;
+//     }
+//     middle() {
+//         let slow = this.head;
+//         let fast = this.head;
+//         while (fast !== null && fast.next !== null) {
+//             slow = slow.next;
+//             fast = fast.next.next;
+//         }
+//         return slow.value;
+//     }
+//     middleDelete() {
+//         if (this.head === null) return null;
+//         if (this.head.next === null) return null;
+//         let slow = this.head;
+//         let fast = this.head;
+//         let pre = null;
+//         while (fast !== null && fast.next !== null) {
+//             pre = slow;
+//             slow = slow.next;
+//             fast = fast.next.next;
+//         }
+//         pre.next = slow.next;
+//         return this.head;
+//     }
+//     print() {
+//         if (this.isEmpty()) {
+//             console.log(`LinkedList is empty`);
+//         } else {
+//             let curr = this.head;
+//             let listValues = "";
+//             let count = 0;
+//             let sum = 0;
+//             while (curr) {
+//                 listValues += `${curr.value} `;
+//                 sum += curr.value;
+//                 count++;
+//                 curr = curr.next;
+//             }
+//             console.log(`list values : ${listValues} and count : ${count} sum: ${sum} `);
+//         }
+//     }
+// }
