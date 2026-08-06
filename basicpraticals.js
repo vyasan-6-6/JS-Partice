@@ -67,4 +67,6 @@ const user = new Promise((res)=>{
         res("okey")
     }, 2000);
 });
-user.then(data => console.log(data))
+user.then(data => console.log(data));
+
+Promise.resolve(5).then(num=>num+1).then(num=>num*2).then(re=>console.log(re))
