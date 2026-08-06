@@ -92,12 +92,49 @@
 // }
 // user();
 
-const person = {
-    greet(){
-console.log('hello'); 
-    }
-}
-const student = Object.create(person);
-student.greet()
-student.name ='ac;';
-console.log(student);
+// function Person(name) {
+//   this.name = name;
+// }
+
+// Person.prototype.sayHi = function () {
+//   console.log("Hi, I am " + this.name);
+// };
+
+// const p1 = new Person("John");
+// const p2 = new Person("Alice");
+
+// p1.sayHi();
+// p2.sayHi();
+
+// class Person{
+//   constructor(name){
+//     this.name = name
+//   }
+// greet(){
+//   console.log('hi my name :'+ this.name)  
+// }
+// }
+// const p = new Person();
+// p.greet();
+
+
+ 
+// const numbers = [1, 2, 3, 4];
+
+// const [first,...rest] = numbers;
+
+// console.log(first);
+// console.log(rest);
+
+const user = {
+  name: "John",
+  address: {
+    city: "Kochi"
+  }
+};
+
+const copy = {...user,address:{...user.address}};
+
+copy.address.city = "Delhi";
+
+console.log(user.address.city); // "Delhi"
