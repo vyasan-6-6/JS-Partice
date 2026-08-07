@@ -126,15 +126,32 @@
 // console.log(first);
 // console.log(rest);
 
-const user = {
-  name: "John",
-  address: {
-    city: "Kochi"
-  }
-};
+// const user = {
+//   name: "John",
+//   address: {
+//     city: "Kochi"
+//   }
+// };
 
-const copy = {...user,address:{...user.address}};
+// const copy = {...user,address:{...user.address}};
 
-copy.address.city = "Delhi";
+// copy.address.city = "Delhi";
 
-console.log(user.address.city); // "Delhi"
+// console.log(user.address.city); // "Delhi"
+
+// const arr = [1,2,3,4,5,6,7,8,9];
+
+// const arrr=arr.reduce((acc,e)=>{
+// return acc+e
+// },10);
+// console.log(arrr);
+
+// const numbers = [1,2,3];
+// numbers.forEach(num => {
+//      return num*2;
+// });
+// console.log(numbers);
+
+const arr=[1,2,3,4];
+
+console.log(arr.slice(1,3));
