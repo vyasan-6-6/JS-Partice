@@ -157,8 +157,20 @@
 // console.log(arr.slice(1,3));
 
 
-function removeDuplicates(arr){
-   return  [...new Set(arr)]
-}
+// function removeDuplicates(arr){
+//    return  [...new Set(arr)]
+// }
  
-console.log(removeDuplicates([1,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,0]));
+// console.log(removeDuplicates([1,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,0]));
+
+
+function countVowels(str){
+    const vowels = ["a","e","i","o","u"];
+    let count =0;
+    for(let char of str.toLowerCase()){
+        if(vowels.includes(char)){
+            count++;
+        }
+    }
+return count;
+};
