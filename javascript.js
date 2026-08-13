@@ -1803,3 +1803,77 @@ class LinkedList {
 //         }
 //     }
 // }
+
+// ==========================================
+// TECHNICAL REVIEW / INTERVIEW EXAMPLES
+// ==========================================
+
+// 1. Polyfill for Array.prototype.flat (Array Flattening with Depth)
+// Question: Implement a custom flat() function that flattens a nested array up to a specified depth.
+// This tests recursion, closures, array methods, and handling default arguments.
+
+function customFlat(arr, depth = 1) {
+    let result = [];
+    
+    for (let item of arr) {
+        if (Array.isArray(item) && depth > 0) {
+            // Recursively flatten the item and decrease the depth by 1
+            result.push(...customFlat(item, depth - 1));
+        } else {
+            result.push(item);
+        }
+    }
+    
+    return result;
+}
+
+// Example usage:
+// const nestedArray = [1, [2, [3, [4]], 5]];
+// console.log(customFlat(nestedArray, 1)); // [1, 2, [3, [4]], 5]
+// console.log(customFlat(nestedArray, 2)); // [1, 2, 3, [4], 5]
+// console.log(customFlat(nestedArray, Infinity)); // [1, 2, 3, 4, 5]
+
+
+// 2. Polyfill for Promise.all
+// Question: Implement a custom Promise.all() function.
+// It should take an array of promises and return a single promise that resolves to an array of results,
+// or rejects as soon as any of the input promises rejects.
+
+function customPromiseAll(promises) {
+    return new Promise((resolve, reject) => {
+        let results = [];
+        let completedPromisesCount = 0;
+        
+        if (promises.length === 0) {
+            resolve(results);
+            return;
+        }
+        
+        promises.forEach((promise, index) => {
+            // Wrap in Promise.resolve to handle non-promise values passed in the array
+            Promise.resolve(promise)
+                .then((value) => {
+                    results[index] = value;
+                    completedPromisesCount++;
+                    
+                    // If all promises are resolved, resolve the outer promise
+                    if (completedPromisesCount === promises.length) {
+                        resolve(results);
+                    }
+                })
+                .catch((error) => {
+                    // Reject immediately if any promise rejects
+                    reject(error);
+                });
+        });
+    });
+}
+
+// Example usage:
+// const p1 = Promise.resolve(10);
+// const p2 = new Promise((resolve) => setTimeout(() => resolve(20), 100));
+// const p3 = 30; // non-promise value
+// customPromiseAll([p1, p2, p3])
+//     .then(values => console.log(values)) // [10, 20, 30]
+//     .catch(err => console.error(err));
+

@@ -164,13 +164,14 @@
 // console.log(removeDuplicates([1,2,3,4,5,6,7,8,9,2,3,4,5,6,7,8,0]));
 
 
-function countVowels(str){
-    const vowels = ["a","e","i","o","u"];
-    let count =0;
-    for(let char of str.toLowerCase()){
-        if(vowels.includes(char)){
-            count++;
-        }
-    }
-return count;
-};
+// function countVowels(str){
+//     const vowels = ["a","e","i","o","u"];
+//     let count =0;
+//     for(let char of str.toLowerCase()){
+//         if(vowels.includes(char)){
+//             count++;
+//         }
+//     }
+// return count;
+// };
+
