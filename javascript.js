@@ -1877,3 +1877,92 @@ function customPromiseAll(promises) {
 //     .then(values => console.log(values)) // [10, 20, 30]
 //     .catch(err => console.error(err));
 
+
+// 3. Deep Clone Function (deepClone)
+// Question: Implement a custom deepClone function that recursively copies an object or array.
+// It must handle nested objects, arrays, and primitive data types, while avoiding shared references.
+
+function deepClone(value) {
+    // Handle primitive types and null/undefined
+    if (value === null || typeof value !== 'object') {
+        return value;
+    }
+    
+    // Handle Date object
+    if (value instanceof Date) {
+        return new Date(value.getTime());
+    }
+    
+    // Handle RegExp object
+    if (value instanceof RegExp) {
+        return new RegExp(value.source, value.flags);
+    }
+    
+    // Handle Array
+    if (Array.isArray(value)) {
+        return value.map(item => deepClone(item));
+    }
+    
+    // Handle Object
+    const clone = {};
+    for (let key in value) {
+        if (value.hasOwnProperty(key)) {
+            clone[key] = deepClone(value[key]);
+        }
+    }
+    
+    return clone;
+}
+
+// Example usage:
+// const original = { a: 1, b: { c: 2 }, d: [3, 4], e: new Date() };
+// const copy = deepClone(original);
+// copy.b.c = 99;
+// copy.d.push(5);
+// console.log(original.b.c); // 2 (unchanged)
+// console.log(original.d);   // [3, 4] (unchanged)
+
+
+// 4. Function Currying with Infinite/Dynamic Arguments & General Currying Helper
+// Question 4a: Implement a curried sum function that aggregates arguments and returns the final sum when called with empty parenthesis.
+// E.g., sum(1)(2, 3)(4)() -> 10
+
+function dynamicSum(...args) {
+    let accumulatedArgs = [...args];
+    
+    function curried(...nextArgs) {
+        if (nextArgs.length === 0) {
+            return accumulatedArgs.reduce((acc, curr) => acc + curr, 0);
+        }
+        accumulatedArgs.push(...nextArgs);
+        return curried;
+    }
+    
+    return curried;
+}
+
+// Example usage:
+// console.log(dynamicSum(1)(2, 3)(4)()); // 10
+
+// Question 4b: Implement a generic curry utility that transforms a standard function.
+// E.g., curry(add)(1)(2)(3) where add(a,b,c) => a+b+c.
+
+function curry(fn) {
+    return function curried(...args) {
+        if (args.length >= fn.length) {
+            return fn.apply(this, args);
+        } else {
+            return function(...nextArgs) {
+                return curried.apply(this, args.concat(nextArgs));
+            };
+        }
+    };
+}
+
+// Example usage:
+// const add = (a, b, c) => a + b + c;
+// const curriedAdd = curry(add);
+// console.log(curriedAdd(1)(2)(3)); // 6
+// console.log(curriedAdd(1, 2)(3)); // 6
+
+
