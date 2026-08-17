@@ -1966,3 +1966,89 @@ function curry(fn) {
 // console.log(curriedAdd(1, 2)(3)); // 6
 
 
+// 5. Polyfill for Array.prototype.reduce
+// Question: Implement a custom reduce() function (or Array.prototype.customReduce) that behaves like the native Array.prototype.reduce().
+// This tests your understanding of array traversal, callbacks, and handling the optional initialValue parameter (and throwing TypeErrors on empty arrays).
+
+Array.prototype.customReduce = function(callback, initialValue) {
+    if (this === null || this === undefined) {
+        throw new TypeError("Array.prototype.customReduce called on null or undefined");
+    }
+    if (typeof callback !== 'function') {
+        throw new TypeError(callback + " is not a function");
+    }
+    
+    // Check if the array is empty and no initialValue is provided
+    if (this.length === 0 && arguments.length < 2) {
+        throw new TypeError("Reduce of empty array with no initial value");
+    }
+    
+    let accumulator = arguments.length >= 2 ? initialValue : this[0];
+    let startIndex = arguments.length >= 2 ? 0 : 1;
+    
+    for (let i = startIndex; i < this.length; i++) {
+        // Skip empty slots in sparse arrays
+        if (i in this) {
+            accumulator = callback(accumulator, this[i], i, this);
+        }
+    }
+    
+    return accumulator;
+};
+
+// Example usage:
+// const numbers = [1, 2, 3, 4];
+// const sumResult = numbers.customReduce((acc, curr) => acc + curr, 0);
+// console.log(sumResult); // 10
+
+
+// 6. Simple EventEmitter Class
+// Question: Implement a basic EventEmitter class that supports publishing (emit), subscribing (on), unsubscribing (off), and subscribing once (once).
+// This tests object-oriented design, event-driven pattern, arrays, functions, and callbacks.
+
+class EventEmitter {
+    constructor() {
+        this.events = {};
+    }
+
+    on(eventName, listener) {
+        if (!this.events[eventName]) {
+            this.events[eventName] = [];
+        }
+        this.events[eventName].push(listener);
+        // Return an unsubscribe function for convenience
+        return () => this.off(eventName, listener);
+    }
+
+    emit(eventName, ...args) {
+        if (this.events[eventName]) {
+            // Use slice() to prevent issues if a listener unsubscribes itself during execution
+            const listeners = this.events[eventName].slice();
+            listeners.forEach(listener => listener(...args));
+        }
+    }
+
+    off(eventName, listener) {
+        if (!this.events[eventName]) return;
+        this.events[eventName] = this.events[eventName].filter(l => l !== listener);
+    }
+
+    once(eventName, listener) {
+        const onceWrapper = (...args) => {
+            listener(...args);
+            this.off(eventName, onceWrapper);
+        };
+        this.on(eventName, onceWrapper);
+    }
+}
+
+// Example usage:
+// const emitter = new EventEmitter();
+// const greet = (name) => console.log(`Hello, ${name}!`);
+// const unsubscribe = emitter.on('greetEvent', greet);
+// emitter.emit('greetEvent', 'Alice'); // Hello, Alice!
+// unsubscribe();
+// emitter.emit('greetEvent', 'Bob'); // (Nothing happens)
+
+
+
