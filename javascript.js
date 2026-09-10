@@ -1626,7 +1626,6 @@ class LinkedList {
         }
         this.size++;
     }
-    
 }
 
 // class LinkedList {
@@ -1814,7 +1813,7 @@ class LinkedList {
 
 function customFlat(arr, depth = 1) {
     let result = [];
-    
+
     for (let item of arr) {
         if (Array.isArray(item) && depth > 0) {
             // Recursively flatten the item and decrease the depth by 1
@@ -1823,7 +1822,7 @@ function customFlat(arr, depth = 1) {
             result.push(item);
         }
     }
-    
+
     return result;
 }
 
@@ -1832,7 +1831,6 @@ function customFlat(arr, depth = 1) {
 // console.log(customFlat(nestedArray, 1)); // [1, 2, [3, [4]], 5]
 // console.log(customFlat(nestedArray, 2)); // [1, 2, 3, [4], 5]
 // console.log(customFlat(nestedArray, Infinity)); // [1, 2, 3, 4, 5]
-
 
 // 2. Polyfill for Promise.all
 // Question: Implement a custom Promise.all() function.
@@ -1843,19 +1841,19 @@ function customPromiseAll(promises) {
     return new Promise((resolve, reject) => {
         let results = [];
         let completedPromisesCount = 0;
-        
+
         if (promises.length === 0) {
             resolve(results);
             return;
         }
-        
+
         promises.forEach((promise, index) => {
             // Wrap in Promise.resolve to handle non-promise values passed in the array
             Promise.resolve(promise)
                 .then((value) => {
                     results[index] = value;
                     completedPromisesCount++;
-                    
+
                     // If all promises are resolved, resolve the outer promise
                     if (completedPromisesCount === promises.length) {
                         resolve(results);
@@ -1877,32 +1875,31 @@ function customPromiseAll(promises) {
 //     .then(values => console.log(values)) // [10, 20, 30]
 //     .catch(err => console.error(err));
 
-
 // 3. Deep Clone Function (deepClone)
 // Question: Implement a custom deepClone function that recursively copies an object or array.
 // It must handle nested objects, arrays, and primitive data types, while avoiding shared references.
 
 function deepClone(value) {
     // Handle primitive types and null/undefined
-    if (value === null || typeof value !== 'object') {
+    if (value === null || typeof value !== "object") {
         return value;
     }
-    
+
     // Handle Date object
     if (value instanceof Date) {
         return new Date(value.getTime());
     }
-    
+
     // Handle RegExp object
     if (value instanceof RegExp) {
         return new RegExp(value.source, value.flags);
     }
-    
+
     // Handle Array
     if (Array.isArray(value)) {
-        return value.map(item => deepClone(item));
+        return value.map((item) => deepClone(item));
     }
-    
+
     // Handle Object
     const clone = {};
     for (let key in value) {
@@ -1910,7 +1907,7 @@ function deepClone(value) {
             clone[key] = deepClone(value[key]);
         }
     }
-    
+
     return clone;
 }
 
@@ -1922,14 +1919,13 @@ function deepClone(value) {
 // console.log(original.b.c); // 2 (unchanged)
 // console.log(original.d);   // [3, 4] (unchanged)
 
-
 // 4. Function Currying with Infinite/Dynamic Arguments & General Currying Helper
 // Question 4a: Implement a curried sum function that aggregates arguments and returns the final sum when called with empty parenthesis.
 // E.g., sum(1)(2, 3)(4)() -> 10
 
 function dynamicSum(...args) {
     let accumulatedArgs = [...args];
-    
+
     function curried(...nextArgs) {
         if (nextArgs.length === 0) {
             return accumulatedArgs.reduce((acc, curr) => acc + curr, 0);
@@ -1937,7 +1933,7 @@ function dynamicSum(...args) {
         accumulatedArgs.push(...nextArgs);
         return curried;
     }
-    
+
     return curried;
 }
 
@@ -1952,7 +1948,7 @@ function curry(fn) {
         if (args.length >= fn.length) {
             return fn.apply(this, args);
         } else {
-            return function(...nextArgs) {
+            return function (...nextArgs) {
                 return curried.apply(this, args.concat(nextArgs));
             };
         }
@@ -1965,34 +1961,33 @@ function curry(fn) {
 // console.log(curriedAdd(1)(2)(3)); // 6
 // console.log(curriedAdd(1, 2)(3)); // 6
 
-
 // 5. Polyfill for Array.prototype.reduce
 // Question: Implement a custom reduce() function (or Array.prototype.customReduce) that behaves like the native Array.prototype.reduce().
 // This tests your understanding of array traversal, callbacks, and handling the optional initialValue parameter (and throwing TypeErrors on empty arrays).
 
-Array.prototype.customReduce = function(callback, initialValue) {
+Array.prototype.customReduce = function (callback, initialValue) {
     if (this === null || this === undefined) {
         throw new TypeError("Array.prototype.customReduce called on null or undefined");
     }
-    if (typeof callback !== 'function') {
+    if (typeof callback !== "function") {
         throw new TypeError(callback + " is not a function");
     }
-    
+
     // Check if the array is empty and no initialValue is provided
     if (this.length === 0 && arguments.length < 2) {
         throw new TypeError("Reduce of empty array with no initial value");
     }
-    
+
     let accumulator = arguments.length >= 2 ? initialValue : this[0];
     let startIndex = arguments.length >= 2 ? 0 : 1;
-    
+
     for (let i = startIndex; i < this.length; i++) {
         // Skip empty slots in sparse arrays
         if (i in this) {
             accumulator = callback(accumulator, this[i], i, this);
         }
     }
-    
+
     return accumulator;
 };
 
@@ -2000,7 +1995,6 @@ Array.prototype.customReduce = function(callback, initialValue) {
 // const numbers = [1, 2, 3, 4];
 // const sumResult = numbers.customReduce((acc, curr) => acc + curr, 0);
 // console.log(sumResult); // 10
-
 
 // 6. Simple EventEmitter Class
 // Question: Implement a basic EventEmitter class that supports publishing (emit), subscribing (on), unsubscribing (off), and subscribing once (once).
@@ -2024,13 +2018,13 @@ class EventEmitter {
         if (this.events[eventName]) {
             // Use slice() to prevent issues if a listener unsubscribes itself during execution
             const listeners = this.events[eventName].slice();
-            listeners.forEach(listener => listener(...args));
+            listeners.forEach((listener) => listener(...args));
         }
     }
 
     off(eventName, listener) {
         if (!this.events[eventName]) return;
-        this.events[eventName] = this.events[eventName].filter(l => l !== listener);
+        this.events[eventName] = this.events[eventName].filter((l) => l !== listener);
     }
 
     once(eventName, listener) {
@@ -2050,5 +2044,167 @@ class EventEmitter {
 // unsubscribe();
 // emitter.emit('greetEvent', 'Bob'); // (Nothing happens)
 
+// let name = 'vyasan';
+// let age = 8;
+// let city = 'allpy';
+// console.log(age,city,name);
 
+// let  age = 'vyasan';
+// age = ' hi'
+// console.log(age);
 
+// const name = 'vyasan';
+// name = 'ii'
+// console.log(name);
+
+// let a = 8 ;
+//  let b =9;
+//  [a,b] = [b,a]
+//  console.log(a,b);
+
+// let value = '100';
+// let num = Number(value)
+
+// console.log(typeof num);
+
+// let num = -2;
+// if(num >0){
+//     console.log('it is positive');
+// }else if(num<0){
+//     console.log('it is negative');
+
+// }else{
+//     console.log('it is 0');
+
+// }
+// let num = 0;
+// if(num%2===0){
+//     console.log('it is even');
+// }else if(num%2!==0){
+//     console.log('it is odd')    
+// }
+    
+
+// let a =0  ;
+// let b= 20;
+// let c = 8;
+
+// if(a>b && a>c){
+//     console.log(`${ a} is larger`);
+    
+// }else if(b>a && b >c){
+//     console.log(`${b} is larger`);
+    
+// }else{
+    
+//     console.log(`${c} is larger`);
+// }
+
+// let age = 1;
+// if(age>=18){
+//     console.log(`eligable to vote`);
+    
+// }else{
+//     console.log(`not `);
+    
+// }
+
+// let operation = "add";
+// switch (operation) {
+//     case 'add':
+//         console.log("Monday");
+//         break;
+
+//     case 'subtrate':
+//         console.log("Tuesday");
+//         break;
+//     case 'multiply':
+//         console.log("Tuesday");
+//         break;
+//     case 'divide':
+//         console.log("Tuesday");
+//         break;
+
+//     default:
+//         console.log("Invalid day");
+// }
+
+// for(let i = 0 ; i<=10 ; i++){
+//     console.log(i);
+    
+// }
+
+// for(let i = 0 ; i<=10 ; i++){
+    //     if(i%2!==0){
+        //         console.log(i);
+        //     }
+        // }
+        
+        
+        // for(let i = 10 ; i>=0 ; i--){
+        //     console.log(i);
+            
+        // }
+
+        // let num = 5;
+
+        // for(let i = 1  ; i<=10; i++){
+        //     console.log(`${num} x ${i} = ${num*i}`);
+
+        // }
+
+        // let sum =0;
+        // for(let i = 1 ; i<=5; i++){
+        //      sum+=i
+             
+             
+        //     }
+        //     console.log(sum);
+ 
+        // let num = 55;
+        // let sum = 0 ; 
+          
+        // while(num>0){
+        //     let lasdi = num%10;
+        //     sum+=lasdi;
+        // num = Math.floor(num/10)
+        // }
+        // console.log(sum);
+        
+//         let num = 12345;
+//  let reverse = 0;
+//         while(num>0){
+// let dig = num%10;
+//  reverse = reverse * 10 + dig;
+//  num = Math.floor(num/10);
+//         }
+//         console.log(reverse);
+
+//         let num = 12345345;
+// let count = 0;
+//         while(num>0){
+// count++;
+// num=Math.floor(num/10);
+//         }
+//         console.log(count);
+
+// let num = 1121;
+// let ori= num;
+// let reverse = 0 ; 
+// while(num>0){
+//     let dig = num%10;
+// reverse = reverse * 10 +dig;
+// num = Math.floor(num/10);
+ 
+// }
+// if(ori === num){
+//     console.log(`it is palinedrome`)    
+// }else{
+//     console.log(`it is  not palinedrome`)    
+// }
+ 
+let i = 10;
+while(i>=1){
+console.log(i); 
+i--;
+}
