@@ -2203,8 +2203,85 @@ class EventEmitter {
 //     console.log(`it is  not palinedrome`)    
 // }
  
-let i = 10;
-while(i>=1){
-console.log(i); 
-i--;
-}
+// let i = 10;
+// while(i>=1){
+// console.log(i); 
+// i--;
+// }
+
+
+// let num = 5; 
+//  let fact = 1 ; 
+//   let i = num
+// while(i>=1){
+// fact *=i;i--
+// }
+// console.log(fact);
+// function findlargest(a,b){
+//     if(a>b)return a ;else return b;
+// }
+// console.log(findlargest(22,5));
+
+
+ 
+
+// let str = "JavaScript";
+
+// str.length
+// str.toUpperCase()
+// str.toLowerCase()
+// str.includes("Script")
+// str.startsWith("Java")
+// str.endsWith("pt")
+// str.slice(0, 4)
+// str.substring(0, 4)
+// str.replace("Java", "Type")
+// str.split("")
+// console.log(str.split(""));
+
+// let arr = [10, 20, 30, 40];
+
+// arr.splice(1,2);
+
+// console.log(arr);
+// // [10, 40]
+
+
+// let numbers = [10, 20, 30, 40];
+
+// let result = numbers.filter(num => num>25);
+
+// console.log(result);
+// // [30, 40]
+
+// let numbers = [10, 20, 30];
+
+// let total =  numbers.reduce((sum,num)=>{return sum+num},0)
+
+// console.log(total);
+// 60
+
+// const cart = [
+//     { name: "Phone", price: 20000 },
+//     { name: "Mouse", price: 1000 },
+//     { name: "Keyboard", price: 2000 }
+// ];
+
+// const total = cart.reduce((total,items)=>{return total+items.price},0)
+// console.log(total);
+
+
+// let names = [1,4,6,7,3,2];
+
+// names.sort((a,b)=> b-a);
+// console.log(names);
+
+// const products = [
+//     { name: "Laptop", price: 60000, category: "electronics" },
+//     { name: "Phone", price: 30000, category: "electronics" },
+//     { name: "Shirt", price: 1500, category: "clothing" },
+//     { name: "Shoes", price: 3000, category: "clothing" }
+// ];
+
+// const lap = products.reduce((to,i)=>{return to+i.p},0);
+// console.log(lap);
